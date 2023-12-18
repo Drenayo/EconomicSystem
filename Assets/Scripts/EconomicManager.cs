@@ -19,11 +19,13 @@ public class EconomicManager : MonoBehaviour
 
         foreach (Transform item in productionTran)
         {
-            allProductionUnits.Add(item.GetComponent<ProductionUnit>());
+            if(item.GetComponent<ProductionUnit>())
+                allProductionUnits.Add(item.GetComponent<ProductionUnit>());
         }
         foreach (Transform item in materialTran)
         {
-            allMaterialUnits.Add(item.GetComponent<MaterialUnit>());
+            if (item.GetComponent<MaterialUnit>())
+                allMaterialUnits.Add(item.GetComponent<MaterialUnit>());
         }
     }
 

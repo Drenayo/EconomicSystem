@@ -13,6 +13,8 @@ public class MaterialUnit : Unit
     /// </summary>
     public float price;
 
+    public float originalPrice;
+
     /// <summary>
     /// 材料总量
     /// </summary>

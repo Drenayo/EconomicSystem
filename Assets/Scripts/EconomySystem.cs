@@ -35,22 +35,25 @@ public class EconomySystem : MonoBehaviour
 
     private float AdjustPrice(MaterialUnit materialUnit, float quantityDemanded, float supplyQuantity)
     {
-        
-        // 根据供给和需求的关系调整价格
         float adjustedPrice = materialUnit.price;
 
-        if (quantityDemanded > supplyQuantity)
+        // 设置供需比的阈值，低于这个阈值不进行价格调整
+        float imbalanceThreshold = 0.2f;
+
+        // 计算供需失衡比例
+        float imbalanceRatio = (quantityDemanded - supplyQuantity) / Mathf.Max(quantityDemanded, supplyQuantity);
+
+        Debug.Log(imbalanceRatio+" "+imbalanceThreshold);
+        // 只有在供需比高于阈值时才进行价格调整
+        if (MathF.Abs(imbalanceRatio) > imbalanceThreshold)
         {
-            // 需求大于供给，价格上涨
-            adjustedPrice *= 1.1f;
+            // 根据供需失衡比例来影响涨跌的比例
+            adjustedPrice += (adjustedPrice*imbalanceRatio / 4); // 上涨或下降的比例可以根据实际需求进行调整
         }
-        else if (supplyQuantity > quantityDemanded)
-        {
-            // 供给大于需求，价格下降
-            adjustedPrice *= 0.9f;
-        }
-        // 如果供需平衡，价格不变
-        Debug.Log(materialUnit.gameObject.name + $"的需求量:{quantityDemanded}  供给量:{supplyQuantity} 调整价格:{adjustedPrice}");
+
+        // 如果供需平衡或低于阈值，价格不变
+        Debug.Log(materialUnit.gameObject.name + $"的需求量:{quantityDemanded} 供给量:{supplyQuantity} 调整价格:{adjustedPrice}");
+
         return adjustedPrice;
     }
 
