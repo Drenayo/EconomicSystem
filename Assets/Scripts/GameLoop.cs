@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,15 +16,15 @@ public class GameLoop : MonoBehaviour
     [HideInInspector]
     public UnityEvent gameLoopEvent;
 
-    [Header("nS/天")]
-    public float callInterval;
-    [Header("已经度过的天数")]
+    [LabelText("每天的速度")]
+    public float callInterval = 1;
+    [LabelText("已经度过的天数")]
     public float totalDaysElapsed = 0;
-    [Header("是否暂停")]
+    [LabelText("是否暂停")]
     public bool isStop = false;
 
 
-    [Space]
+    [LabelText("天数UI Text")]
     public Text totalDaysElapsed_Text;
 
     private void Awake()
@@ -41,11 +42,11 @@ public class GameLoop : MonoBehaviour
     public void GameLoopUpdate()
     {
         //Debug.Log($"度过了第{++ totalDaysElapsed}天。");
-        totalDaysElapsed_Text.text = $"第 <color=#bbb>{++totalDaysElapsed}</color> 天";
+        // totalDaysElapsed_Text.text = $"第 <color=#bbb>{++totalDaysElapsed}</color> 天";
         gameLoopEvent.Invoke();
 
 
-        EconomySystem.instance.AdjustEconomy();
+        //EconomySystem.instance.AdjustEconomy();
     }
 
 

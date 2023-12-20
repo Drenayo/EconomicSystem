@@ -10,11 +10,12 @@ public interface IEconomySystem
     /// <summary>
     /// 获取建筑列表
     /// </summary>
-    List<Object> GetBuildingList();
+    List<IEconomicUnit> GetBuildingList();
 
     /// <summary>
     /// 获取资源列表
     /// </summary>
-    List<Object> GetResourceList();
+    List<IEconomicUnit> GetResourceList();
+
 
 }

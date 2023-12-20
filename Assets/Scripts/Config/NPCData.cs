@@ -9,12 +9,20 @@ using System;
 [CreateAssetMenu(menuName = "NPC")]
 public class NPCData : ScriptableObject
 {
+    // 名字
     public string NPCName { get {return  GenerateRandomName(); } }
+    // 性别
     public GenderType genderType;
+    // 年龄
     public int age;
+    // 积蓄
     public int deposit;
 
-    static string GenerateRandomName()
+    /// <summary>
+    /// 随机返回一个3个字的名字
+    /// </summary>
+    /// <returns></returns>
+    public static string GenerateRandomName()
     {
         string[] surnames = {
             "张", "王", "李", "赵", "陈", "刘", "黄", "周", "吴", "徐",
@@ -66,8 +74,6 @@ public class NPCData : ScriptableObject
         return randomName;
     }
 }
-public enum GenderType
-{
-    Male,
-    Female
-}
+
+
+

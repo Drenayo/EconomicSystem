@@ -1,12 +1,15 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DataGenerator : MonoBehaviour
 {
-    [Space]
+    [LabelText("NPC模板")]
     public List<NPCData> npcDatas;
+    [LabelText("NPC父物体")]
     public Transform npcParent;
+    [LabelText("生成数量")]
     public int randomNPCNumber = 20;
     
 
@@ -32,11 +35,13 @@ public class DataGenerator : MonoBehaviour
             NPCData randomNPCData = npcDatas[Random.Range(0, npcDatas.Count)];
             GameObject newNPCObj = new GameObject();
             newNPCObj.transform.parent = npcParent;
+            newNPCObj.gameObject.name = randomNPCData.NPCName;
             NPC newNPC = newNPCObj.AddComponent<NPC>();
-            newNPC.ID = i;
+            newNPC.id = i;
             newNPC.npcName = randomNPCData.NPCName;
             newNPC.age = randomNPCData.age;
             newNPC.deposit = randomNPCData.deposit;
+
         }
     }
 }

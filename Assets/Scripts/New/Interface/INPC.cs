@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProductionRecipeData : ScriptableObject
+/// <summary>
+/// NPC接口
+/// </summary>
+public interface INPC
 {
 
 }
