@@ -24,15 +24,38 @@ public class NPC : MonoBehaviour,IEconomicUnit,INPC
     // 所属工种 *
     public WorkType workType;
 
+    /// <summary>
+    /// 找工作
+    /// </summary>
+    private void FindJob()
+    {
+        if (!building)
+        {
+            foreach (var item in EconomicManager.instance.GetBuildingList())
+            {
+                // 查看建筑是否还在招工
+                Building buildingTemp = item as Building;
+                if (buildingTemp.isRecruiting)
+                {
+                    // 加入
+                    buildingTemp.JoinBuilding(this);
+                    building = buildingTemp;
+                }
+            }
+        }
+    }
+
     public void Loop()
     {
         // 没工作就要找工作
+        FindJob();
         // 有工作就看看有没有更好的工作（考虑NPC的技能体系，某个领域呆的越久的技能值越高，防止NPC频繁跳槽，啥都能干）
-        // 吃饭，下班消费（考虑NPC的喜好，家庭住址（只找附近的店铺））
+
+        // 吃饭，下班（消费：消费在一天的循环中考虑多次消费）（考虑NPC的喜好，家庭住址（只找附近的店铺））
+
         // 上班工作
 
-        // 
-        throw new System.NotImplementedException();
+        //
     }
 }
 

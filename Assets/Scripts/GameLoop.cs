@@ -42,22 +42,13 @@ public class GameLoop : MonoBehaviour
     public void GameLoopUpdate()
     {
         //Debug.Log($"度过了第{++ totalDaysElapsed}天。");
-        // totalDaysElapsed_Text.text = $"第 <color=#bbb>{++totalDaysElapsed}</color> 天";
+        totalDaysElapsed_Text.text = $"第 <color=#bbb>{++totalDaysElapsed}</color> 天";
         gameLoopEvent.Invoke();
 
 
         //EconomySystem.instance.AdjustEconomy();
     }
 
-
-    public void Btn_Continue()
-    {
-        isStop = false;
-    }
-    public void Btn_Stop()
-    {
-        isStop = true;
-    }
 
     IEnumerator Repeating()
     {

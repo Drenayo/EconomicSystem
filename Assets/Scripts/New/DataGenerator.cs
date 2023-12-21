@@ -15,7 +15,7 @@ public class DataGenerator : MonoBehaviour
 
 
 
-    void Start()
+    void Awake()
     {
         GenerateRandomNPC();
     }

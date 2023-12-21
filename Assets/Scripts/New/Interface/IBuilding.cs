@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public interface IBuilding
 {
-    /// <summary>
-    /// 获取最大利润的生产配方
-    /// </summary>
-    IProductionRecipe GetMaxProfitProductionRecipe();
+    ///// <summary>
+    ///// 获取最大利润的生产配方
+    ///// </summary>
+    //IProductionRecipe GetMaxProfitProductionRecipe();
 }

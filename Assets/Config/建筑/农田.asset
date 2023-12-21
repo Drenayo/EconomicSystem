@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: "\u519C\u7530"
   m_EditorClassIdentifier: 
   materialUnitDatas:
-  - inputMaterialUnits: []
-    outputMaterialUnit:
-      materialUnit: {fileID: 0}
-      neededMaterials: 0
+  - {fileID: 11400000, guid: 9a4f6ead730eea341ac65ec80edcff49, type: 2}
+  - {fileID: 11400000, guid: 9a4f6ead730eea341ac65ec80edcff49, type: 2}

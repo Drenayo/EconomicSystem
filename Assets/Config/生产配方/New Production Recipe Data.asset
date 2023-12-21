@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfa60b4626364f4ba84b24b38d5c748, type: 3}
   m_Name: New Production Recipe Data
   m_EditorClassIdentifier: 
-  inputRes: []
-  outputRes:
-    res: {fileID: 0}
-    resNumber: 0
+  inputRes:
+  - {res: {fileID: 0}, resNumber: 1}
+  - {res: {fileID: 0}, resNumber: 2}
+  outputRes: {res: {fileID: 0}, resNumber: 1}

@@ -11,6 +11,7 @@ public class NewEconomySystem : MonoBehaviour
     public IEconomicManager economicManager;
     private void Awake()
     {
+        economicManager = GetComponent<IEconomicManager>();
         // 本地调用经济系统的方式
         GameLoop.instance.gameLoopEvent.AddListener(EconomySystemLoop);    
     }
@@ -22,12 +23,16 @@ public class NewEconomySystem : MonoBehaviour
     {
         Init();
         InvokeEntityLoop();
+        
     }
 
     // 每次循环的初始化与数据获取
     private void Init()
     {
-        
+        foreach (var item in economicManager.GetResourceList())
+        {
+            AdjustPrice(item,economicManager.CalculateDemand(item),economicManager.CalculateSupply(item));
+        }
     }
 
     // 调用经济实体循环

@@ -20,7 +20,10 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
     private void Awake()
     {
         instance = this;
+    }
 
+    private void Start()
+    {
         foreach (Transform item in buildingParent)
         {
             if (item.GetComponent<Building>())
@@ -30,6 +33,12 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
         {
             if (item.GetComponent<Resource>())
                 allResourceList.Add(item.GetComponent<Resource>());
+        }
+
+        foreach (Transform item in NPCParent)
+        {
+            if (item.GetComponent<NPC>())
+                allNPCList.Add(item.GetComponent<NPC>());
         }
     }
 
@@ -43,6 +52,8 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
 
     public List<IResource> GetResourceList()
     {
+        Debug.Log(allResourceList.Count+"_1");
+        Debug.Log(allResourceList.ConvertAll<IResource>(x => x).Count + "_2");
         return allResourceList.ConvertAll<IResource>(x => x);
     }
 
