@@ -10,6 +10,8 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
     public Transform ResourceParent;
     public Transform NPCParent;
 
+    public int resIDAcc = 0;
+
     // 建筑列表
     public List<Building> allBuildingList;
     // 资源列表
@@ -22,7 +24,7 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
         instance = this;
     }
 
-    private void Start()
+    private void Load()
     {
         foreach (Transform item in buildingParent)
         {
@@ -42,23 +44,40 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
         }
     }
 
+    private void Start()
+    {
+        Load();
+    }
+
 
 
 
     public List<IBuilding> GetBuildingList()
     {
+        foreach (Transform item in buildingParent)
+        {
+            if (item.GetComponent<Building>())
+                allBuildingList.Add(item.GetComponent<Building>());
+        }
         return allBuildingList.ConvertAll<IBuilding>(x => x);
     }
 
     public List<IResource> GetResourceList()
     {
-        Debug.Log(allResourceList.Count+"_1");
-        Debug.Log(allResourceList.ConvertAll<IResource>(x => x).Count + "_2");
+        foreach (Transform item in ResourceParent)
+        {
+            if (item.GetComponent<Resource>())
+                allResourceList.Add(item.GetComponent<Resource>());
+        }
+        //Debug.Log(allResourceList.Count+"_1");
+        //Debug.Log(allResourceList.ConvertAll<IResource>(x => x).Count + "_2");
         return allResourceList.ConvertAll<IResource>(x => x);
     }
 
     public List<IEconomicUnit> GetAllEconomicEntity()
     {
+        Load();
+
         return allBuildingList.Cast<IEconomicUnit>()
                 .Concat(allResourceList.Cast<IEconomicUnit>())
                 .Concat(allNPCList.Cast<IEconomicUnit>())

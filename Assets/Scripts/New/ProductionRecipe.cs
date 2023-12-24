@@ -51,6 +51,7 @@ public struct ResourceUnit
         resQuantity = n;
     }
     public float Price { get { return res.currPrice * resQuantity; } }
+    public int ID { get { return res.id; } }
 
     /// <summary>
     /// 资源
