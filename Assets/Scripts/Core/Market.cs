@@ -1,3 +1,4 @@
+using Sirenix.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,32 +19,26 @@ public class Market : MonoSingleton<Market>
     /// <summary>
     /// 从市场购买资源
     /// </summary>
-    /// <returns>返回售价，-1为无货源</returns>
-    public float BuyResources(int resID, int resCount)
+    /// <returns>返回总价，0为无货源</returns>
+    public float BuyResources(int resID,ref int resCount)
     {
         if (dicMarketStock.ContainsKey(resID))
         {
             List<Building> buildings = new List<Building>();
-            
+            int index = 0;
+            float price = 0;
             // 遍历建筑列表
             if (dicBuildings.TryGetValue(resID, out buildings))
-                foreach (var item in dicBuildings)
-                {
-
-                }
-
+                do
+                    price += buildings[index++].SellResources(resID, ref resCount);
+                while (resCount > 0);
+            return price;
         }
-        else 
-        { 
-            // 市场上没货
-            return -1;
-        }
-
         return 0;
     }
 
     /// <summary>
-    /// 市场资源列表
+    /// 市场资源列表 废弃
     /// </summary>
     public List<Resource> resources = new List<Resource>();
 

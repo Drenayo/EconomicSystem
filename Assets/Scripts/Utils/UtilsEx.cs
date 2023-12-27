@@ -58,7 +58,7 @@ public static class UtilsEx
         if (indexInInputRes != -1)
         {
             // 减去数量
-            list[indexInInputRes] = new ResourceUnit
+            list[indexInInputRes] = new ResourceUnit()
             {
                 res = subtractResource.res,
                 resCount = subtractResource.resCount - subtractResource.resCount
