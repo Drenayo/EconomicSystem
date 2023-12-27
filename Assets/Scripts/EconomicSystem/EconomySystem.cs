@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// 经济系统控制中枢，与实际业务剥离，只处理经济系统抽象核心逻辑
 /// </summary>
-public class NewEconomySystem : MonoBehaviour
+public class EconomySystem : MonoBehaviour
 {
     public IEconomicManager economicManager;
     private void Awake()
