@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 // TODO 市场，建筑从市场进货，放到市场上的才会被售卖，目前默认生产的物品就是被放到市场售卖的，市场是时刻更新的，保证每个建筑最新产出可以投放到市场上
@@ -52,9 +53,56 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     public List<ProductionRecipe> currProductionRecipe;
 
     [LabelText("原材料库存单位")]
-    public List<ResourceUnit> stockResourceUnits;
+    public List<ResourceUnit> rawResourcesStock;
 
-    
+    [LabelText("产品库存单位")]
+    public List<ResourceUnit> productStock;
+
+
+    /// <summary>
+    /// 购买资源
+    /// </summary>
+    /// <returns>返回价格</returns>
+    //public float BuyResources(int resID, ref int resCount)
+    //{
+
+    //}
+
+    /// <summary>
+    /// 卖出资源
+    /// </summary>
+    /// <returns>返回价格，无货源返回-1</returns>
+    public float SellResources(int resID,ref int resCount)
+    {
+        if (productStock != null && productStock.Count != 0)
+        {
+            if (productStock.HasID(resID))
+            {
+                ResourceUnit resUnit = productStock.GetIDRes(resID);
+                float price = 0;
+                // 库存满足
+                if (resUnit.resCount >= resCount)
+                {
+                    price = resUnit.res.currPrice * resCount;
+                    resUnit.resCount -= resCount;
+                    resCount = 0;
+                    if (resUnit.resCount == 0)
+                        productStock.Remove(resUnit);
+                }
+                else
+                {
+                    price = resUnit.Price;
+                    resCount -= resUnit.resCount;
+                    resUnit.resCount = 0;
+                    productStock.Remove(resUnit);
+                }
+                deposit += price;
+                return price;
+            }
+        }
+        return -1;
+    }
+
     /// <summary>
     /// 买入原材料，增加库存材料
     /// </summary>
@@ -65,12 +113,12 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
         // 新写法 买入的时候直接在市场消耗掉，简化流程
         foreach (ProductionRecipe recipe in currProductionRecipe)
         {
-            foreach (ResourceUnit inputResource in recipe.inputRes)
-            {
-                if (!Market.instance.BuyResourceFromMarket(inputResource.ID, inputResource.resQuantity))
-                    Debug.Log(gameObject.name + "进货失败");
+            //foreach (ResourceUnit inputResource in recipe.inputRes)
+            //{
+            //    if (!Market.instance.BuyResourceFromMarket(inputResource.ID, inputResource.resCount))
+            //        Debug.Log(gameObject.name + "进货失败");
                  
-            }
+            //}
         }
 
 

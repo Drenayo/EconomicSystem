@@ -97,7 +97,7 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
                 {
                     if ((resource as Resource).id == productionRecipe.outputRes.res.id)
                     {
-                        supply += productionRecipe.outputRes.resQuantity;
+                        supply += productionRecipe.outputRes.resCount;
                     }
                 }
             }
@@ -119,7 +119,7 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
                     {
                         if ((resource as Resource).id == inputRes.res.id)
                         {
-                            demand += inputRes.resQuantity;
+                            demand += inputRes.resCount;
                         }
                     }
                 }
