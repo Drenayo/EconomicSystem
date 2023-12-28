@@ -1,27 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.XR;
 
-public class EconomicManager : MonoBehaviour, IEconomicManager
+public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
 {
-    public static EconomicManager instance;
     public Transform buildingParent;
-    public Transform ResourceParent;
     public Transform NPCParent;
-
-    public int resIDAcc = 0;
 
     // 建筑列表
     public List<Building> allBuildingList;
-    // 资源列表
-    public List<Resource> allResourceList;
     // NPC列表
     public List<NPC> allNPCList;
+    // 资源模板列表
+    public List<ResourceData> allResourceData;
 
-    private void Awake()
+    private void Start()
     {
-        instance = this;
+        Load();
     }
 
     private void Load()
@@ -31,59 +29,59 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
             if (item.GetComponent<Building>())
                 allBuildingList.Add(item.GetComponent<Building>());
         }
-        foreach (Transform item in ResourceParent)
-        {
-            if (item.GetComponent<Resource>())
-                allResourceList.Add(item.GetComponent<Resource>());
-        }
-
         foreach (Transform item in NPCParent)
         {
             if (item.GetComponent<NPC>())
                 allNPCList.Add(item.GetComponent<NPC>());
         }
-    }
 
-    private void Start()
-    {
-        Load();
+        // 读取所有资源
+        foreach (ResourceData item in Resources.LoadAll<ResourceData>("资源/"))
+        {
+            allResourceData.Add(item);
+        }
     }
-
 
 
 
     public List<IBuilding> GetBuildingList()
     {
-        foreach (Transform item in buildingParent)
-        {
-            if (item.GetComponent<Building>())
-                allBuildingList.Add(item.GetComponent<Building>());
-        }
         return allBuildingList.ConvertAll<IBuilding>(x => x);
-    }
-
-    public List<IResource> GetResourceList()
-    {
-        foreach (Transform item in ResourceParent)
-        {
-            if (item.GetComponent<Resource>())
-                allResourceList.Add(item.GetComponent<Resource>());
-        }
-        //Debug.Log(allResourceList.Count+"_1");
-        //Debug.Log(allResourceList.ConvertAll<IResource>(x => x).Count + "_2");
-        return allResourceList.ConvertAll<IResource>(x => x);
     }
 
     public List<IEconomicUnit> GetAllEconomicEntity()
     {
-        Load();
-
         return allBuildingList.Cast<IEconomicUnit>()
-                .Concat(allResourceList.Cast<IEconomicUnit>())
                 .Concat(allNPCList.Cast<IEconomicUnit>())
                 .ToList();
     }
-
+    
+    /// <summary>
+    /// 通过ID拿到对应资源Data
+    /// </summary>
+    /// <returns></returns>
+    public ResourceData GetResourceDataByID(int resID)
+    {
+        foreach (var item in allResourceData)
+        {
+            if(item.id == resID)
+                return item;
+        }
+        return null;
+    }
+    
+    /// <summary>
+    /// 通过ID拿到对应建筑实例
+    /// </summary>
+    public Building GetBuildingByID(int buildingID)
+    {
+        foreach (var item in allBuildingList)
+        {
+            if (item.id == buildingID)
+                return item;
+        }
+        return null;
+    }
 
     // 获取某资源的市场供应量
     public int CalculateSupply(IResource resource)
@@ -95,7 +93,7 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
             {
                 foreach (var productionRecipe in item.currProductionRecipe)
                 {
-                    if ((resource as Resource).id == productionRecipe.outputRes.res.id)
+                    if ((resource as ResourceData).id == productionRecipe.outputRes.res.id)
                     {
                         supply += productionRecipe.outputRes.resCount;
                     }
@@ -117,7 +115,7 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
                 {
                     foreach (var inputRes in productionRecipe.inputRes)
                     {
-                        if ((resource as Resource).id == inputRes.res.id)
+                        if ((resource as ResourceData).id == inputRes.res.id)
                         {
                             demand += inputRes.resCount;
                         }
@@ -127,4 +125,5 @@ public class EconomicManager : MonoBehaviour, IEconomicManager
         }
         return demand;
     }
+
 }

@@ -9,12 +9,15 @@ using UnityEngine;
 /// </summary>
 public class Market : MonoSingleton<Market>
 {
-    // 市场总库存
+    /// <summary>
+    /// 市场总库存
+    /// </summary>
     private Dictionary<int, ResourceUnit> dicMarketStock;
 
-    // 每个资源对应售卖建筑列表 （有哪些建筑在售卖）
+    /// <summary>
+    /// 每个资源ID对应提供售卖服务的建筑列表 （有哪些建筑在售卖）
+    /// </summary>
     private Dictionary<int, List<Building>> dicBuildings;
-    
 
     /// <summary>
     /// 从市场购买资源
@@ -38,49 +41,31 @@ public class Market : MonoSingleton<Market>
     }
 
     /// <summary>
-    /// 市场资源列表 废弃
+    /// 推送资源到市场(建筑每次生产出新产品，都会推送到市场，市场管理着所有产出资源，同时接受所有人的交易)
     /// </summary>
-    public List<Resource> resources = new List<Resource>();
-
-    /// <summary>
-    /// 向市场添加资源
-    /// </summary>
-    public void AddResourceToMarket(ResourceUnit resUnit,Building building)
+    public void PushResources(int resID, int resCount, int buildingID)
     {
-        for (int i = 0; i < resUnit.resCount; i++)
+        // 维护市场资源列表
+        if (dicMarketStock.ContainsKey(resID))
         {
-            Resource temp = resUnit.res;
-            GameObject newObj = new GameObject();
-            newObj.name = temp.name;
-            newObj.transform.parent = EconomicManager.instance.ResourceParent;
-            Resource newRes = newObj.AddComponent<Resource>();
-            newRes.SetResource(temp.id, temp.originalPrice, temp.balancePrice, temp.currPrice, building);
-            resources.Add(newRes);
+            ResourceUnit unit = dicMarketStock[resID];
+            unit.resCount += resCount;
         }
-    }
+        else
+            dicMarketStock.Add(resID, new ResourceUnit(EconomicManager.Instance.GetResourceDataByID(resID), resCount));
 
-    /// <summary>
-    /// 从市场买入资源
-    /// </summary>
-    public bool BuyResourceFromMarket(int buyResID,int buyCount)
-    {
-        bool isBuy = false;
-        for (int i = 0; i < resources.Count; i++)
+        // 维护建筑列表
+        if (dicBuildings.ContainsKey(resID))
         {
-            if (buyResID == resources[i].id && buyCount > 0)
-            {
-                isBuy = true;
-
-                // 提供该资源的NPC或建筑的金钱增加
-                resources[i].building.deposit += resources[i].currPrice;
-
-                // 市场资源减少
-                Destroy(resources[i].gameObject);
-                resources.Remove(null);
-                buyCount--;
-            }
+            // 查看建筑列表有没有这次的建筑，如果有就不加了
+            if (!dicBuildings[resID].Contains(EconomicManager.Instance.GetBuildingByID(buildingID)))
+                dicBuildings[resID].Add(EconomicManager.Instance.GetBuildingByID(buildingID));
+        }
+        else
+        {
+            dicBuildings.Add(resID, new List<Building>());
+            dicBuildings[resID].Add(EconomicManager.Instance.GetBuildingByID(buildingID));
         }
 
-        return isBuy;
     }
 }

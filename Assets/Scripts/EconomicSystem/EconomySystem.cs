@@ -21,18 +21,7 @@ public class EconomySystem : MonoBehaviour
     /// </summary>
     public void EconomySystemLoop()
     {
-        Init();
         InvokeEntityLoop();
-        
-    }
-
-    // 每次循环的初始化与数据获取
-    private void Init()
-    {
-        foreach (var item in economicManager.GetResourceList())
-        {
-            AdjustPrice(item,economicManager.CalculateDemand(item),economicManager.CalculateSupply(item));
-        }
     }
 
     // 调用经济实体循环
@@ -52,9 +41,9 @@ public class EconomySystem : MonoBehaviour
     /// <param name="quantityDemanded">需求量</param>
     /// <param name="supplyQuantity">供应量</param>
     /// <returns></returns>
-    private float AdjustPrice(IResource resource, float quantityDemanded, float supplyQuantity)
+    private float AdjustPrice(float quantityDemanded, float supplyQuantity)
     {
-        float adjustedPrice = 0;
+        float adjustedPrice = 0; // 这里记得赋值，原始价格
 
         // 设置供需比的阈值，低于这个阈值不进行价格调整
         float imbalanceThreshold = 0.2f;

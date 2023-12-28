@@ -14,10 +14,10 @@ public interface IEconomicManager
     /// </summary>
     List<IBuilding> GetBuildingList();
 
-    /// <summary>
-    /// 获取资源列表
-    /// </summary>
-    List<IResource> GetResourceList();
+    ///// <summary>
+    ///// 获取资源列表
+    ///// </summary>
+    //List<IResource> GetResourceList();
 
     /// <summary>
     /// 获取某个资源的市场供应量

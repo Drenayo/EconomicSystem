@@ -31,7 +31,7 @@ public class NPC : MonoBehaviour,IEconomicUnit,INPC
     {
         if (!building)
         {
-            foreach (var item in EconomicManager.instance.GetBuildingList())
+            foreach (var item in EconomicManager.Instance.GetBuildingList())
             {
                 // 查看建筑是否还在招工
                 Building buildingTemp = item as Building;

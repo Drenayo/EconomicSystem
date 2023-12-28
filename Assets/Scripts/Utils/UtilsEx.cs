@@ -1,8 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public static class UtilsEx
 {
+    /// <summary>
+    /// 验证是否存在该ID
+    /// </summary>
+    /// <param name="list"></param>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public static bool HasID(this List<ResourceUnit> list, int id)
     {
         foreach (ResourceUnit item in list)
@@ -15,6 +22,12 @@ public static class UtilsEx
         return false;
     }
 
+    /// <summary>
+    /// 得到ID对应资源单位
+    /// </summary>
+    /// <param name="list"></param>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public static ResourceUnit GetIDRes(this List<ResourceUnit> list, int id)
     {
         foreach (ResourceUnit item in list)
@@ -27,49 +40,63 @@ public static class UtilsEx
         return null;
     }
 
-    public static void AddResource(this List<ResourceUnit> list, ResourceUnit newResource)
+    /// <summary>
+    /// 为资源单位列表添加资源
+    /// </summary>
+    public static void AddRes(this List<ResourceUnit> list, int resID, int resCount)
     {
-        // 查找对应的Resource在inputRes中的位置
-        int indexInInputRes = list.FindIndex(existingResource => existingResource.res.Equals(newResource.res));
-
-        // 如果找到了对应的Resource
-        if (indexInInputRes != -1)
+        if (list.HasID(resID))
         {
-            // 创建新的ResourceUnit对象并替换原有的对象
-            list[indexInInputRes] = new ResourceUnit
+            foreach (var item in list)
             {
-                res = newResource.res,
-                resCount = newResource.resCount + newResource.resCount
-            };
+                if (item.ID == resID)
+                    item.resCount += resCount;
+            }
         }
         else
         {
-            // 创建新项并添加到inputRes中
-            list.Add(newResource);
+            list.Add(new ResourceUnit(EconomicManager.Instance.GetResourceDataByID(resID), resCount));
         }
     }
 
-    public static void SubResource(this List<ResourceUnit> list, ResourceUnit subtractResource)
+    /// <summary>
+    /// 为资源单位列表减去资源
+    /// </summary>
+    public static void SubRes(this List<ResourceUnit> list, int resID, int resCount)
     {
-        // 查找对应的Resource在inputRes中的位置
-        int indexInInputRes = list.FindIndex(existingResource => existingResource.res.Equals(subtractResource.res));
-
-        // 如果找到了对应的Resource
-        if (indexInInputRes != -1)
+        if (list.HasID(resID))
         {
-            // 减去数量
-            list[indexInInputRes] = new ResourceUnit()
+            for (int i = 0; i < list.Count; i++)
             {
-                res = subtractResource.res,
-                resCount = subtractResource.resCount - subtractResource.resCount
-            };
-
-            // 如果减到零或以下，删除该项
-            if (list[indexInInputRes].resCount <= 0)
-            {
-                list.RemoveAt(indexInInputRes);
+                if (list[i].ID == resID && (list[i].resCount - resCount) >= 0)
+                {
+                    list[i].resCount -= resCount;
+                    if (list[i].resCount <= 0)
+                        list.Remove(list[i]);
+                }
             }
         }
-        // 如果在inputRes中找不到对应的Resource，可以选择抛出异常或进行其他处理
+    }
+
+
+    /// <summary>
+    /// 验证资源是否充足
+    /// </summary>
+    /// <param name="list"></param>
+    /// <param name="resID"></param>
+    /// <param name="resCount"></param>
+    /// <returns></returns>
+    public static bool ValidateResourceAvailability(this List<ResourceUnit> list, int resID, int resCount)
+    {
+        if (list.HasID(resID))
+        {
+            foreach (var item in list)
+            {
+                if (item.ID == resID)
+                    if((item.resCount - resCount) >= 0)
+                        return true;
+            }
+        }
+        return false;
     }
 }

@@ -8,10 +8,10 @@ using UnityEngine;
 [System.Serializable]
 public class ResourceUnit
 {
-    public ResourceUnit(Resource r, int n)
+    public ResourceUnit(ResourceData res, int resCount)
     {
-        res = r;
-        resCount = n;
+        this.res = res;
+        this.resCount = resCount;
     }
     public float Price { get { return res.currPrice * resCount; } }
     public int ID { get { return res.id; } }
@@ -19,7 +19,7 @@ public class ResourceUnit
     /// <summary>
     /// 资源
     /// </summary>
-    public Resource res;
+    public ResourceData res;
     /// <summary>
     /// 数量
     /// </summary>
