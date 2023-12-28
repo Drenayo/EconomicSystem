@@ -16,7 +16,7 @@ public class NPC : MonoBehaviour,IEconomicUnit,INPC
     public int age;
 
     // 存款
-    public int deposit;
+    public float deposit;
 
     // 工作单位
     public Building building;
@@ -57,6 +57,8 @@ public class NPC : MonoBehaviour,IEconomicUnit,INPC
 
         //
     }
+
+
 }
 
 

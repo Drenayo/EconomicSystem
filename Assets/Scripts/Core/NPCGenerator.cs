@@ -1,22 +1,52 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-/// <summary>
-/// 作为模板存在的，随机生成各种NPC
-/// </summary>
-[CreateAssetMenu(menuName = "NPC")]
-public class NPCData : ScriptableObject
+public class NPCGenerator : MonoBehaviour
 {
-    // 名字
-    public string NPCName { get {return  GenerateRandomName(); } }
-    // 性别
-    public GenderType genderType;
-    // 年龄
-    public int age;
-    // 积蓄
-    public int deposit;
+    [LabelText("NPC父物体")]
+    public Transform npcParent;
+
+    [LabelText("生成数量")]
+    public int randomNPCNumber = 10;
+
+    [LabelText("年龄最小值")]
+    public int minAge = 18;
+    [LabelText("年龄最大值")]
+    public int maxAge = 50;
+
+    [LabelText("最小积蓄")]
+    public float mindeposit = 1000;
+    [LabelText("最大积蓄")]
+    public float maxdeposit = 10000;
+
+
+    void Awake()
+    {
+        GenerateRandomNPC();
+    }
+
+    /// <summary>
+    /// 生成NPC数据
+    /// </summary>
+    void GenerateRandomNPC()
+    {
+        for (int i = 0; i < randomNPCNumber; i++) 
+        {
+            GameObject newNPCObj = new GameObject();
+            newNPCObj.transform.parent = npcParent;
+            newNPCObj.AddComponent<NPC>();
+            
+            NPC npc = (NPC)newNPCObj.GetComponent<NPC>();
+            npc.id = i;
+            npc.name = GenerateRandomName();
+            npc.age = Random.Range(minAge, maxAge);
+            npc.deposit = Random.Range(mindeposit, maxdeposit);
+
+            newNPCObj.gameObject.name = npc.name;
+        }
+    }
 
     /// <summary>
     /// 随机返回一个3个字的名字
@@ -73,7 +103,5 @@ public class NPCData : ScriptableObject
 
         return randomName;
     }
+
 }
-
-
-

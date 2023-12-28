@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 629677460}
   - component: {fileID: 629677459}
   m_Layer: 0
-  m_Name: "\u6570\u636E\u751F\u6210\u5668"
+  m_Name: "NPC\u751F\u6210\u5668"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,9 +282,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a401c47c9f6de848a16f4670742bda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcDatas: []
   npcParent: {fileID: 1085266048}
   randomNPCNumber: 5
+  minAge: 18
+  maxAge: 50
+  mindeposit: 1000
+  maxdeposit: 10000
 --- !u!4 &629677460
 Transform:
   m_ObjectHideFlags: 0
@@ -300,6 +303,63 @@ Transform:
   m_Father: {fileID: 317950353}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &652524057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652524058}
+  - component: {fileID: 652524059}
+  m_Layer: 0
+  m_Name: "\u77FF\u573A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &652524058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652524057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1000430841}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652524059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652524057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab811c22d6f12e459a7e27530a48002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
+  minAcceptableProfit: 0
+  maxProfitError: 1
+  maxNPCNumber: 2
+  maxStock: 100
+  isRecruiting: 1
+  deposit: 10000
+  npcList: []
+  productionRecipeList:
+  - {fileID: 11400000, guid: 3f3acf3ce00753b459a514df5f6cf822, type: 2}
+  currProductionRecipe: []
+  rawResourcesStock: []
+  productStock: []
 --- !u!114 &993643632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 208277239628375089, guid: 49a20f66af45f3442ac7bcb9e0cf6809, type: 3}
@@ -340,6 +400,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2043778151}
+  - {fileID: 652524058}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -417,37 +478,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085266047}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1215210429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1215210430}
-  m_Layer: 0
-  m_Name: "\u8D44\u6E90"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1215210430
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215210429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -608,12 +638,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingParent: {fileID: 1000430841}
-  ResourceParent: {fileID: 1215210430}
   NPCParent: {fileID: 1085266048}
-  resIDAcc: 0
   allBuildingList: []
-  allResourceList: []
   allNPCList: []
+  allResourceData: []
 --- !u!1 &1749065494
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecf0c1c94fed6348b630b640cc5ce68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resources: []
 --- !u!1 &2043778150
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab811c22d6f12e459a7e27530a48002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   minAcceptableProfit: 0
   maxProfitError: 1
   maxNPCNumber: 2
@@ -745,18 +772,10 @@ MonoBehaviour:
   deposit: 10000
   npcList: []
   productionRecipeList:
-  - inputRes: []
-    outputRes:
-      res: {fileID: 0}
-      resQuantity: 1
-    productionTool: {fileID: 0}
-  - inputRes: []
-    outputRes:
-      res: {fileID: 0}
-      resQuantity: 1
-    productionTool: {fileID: 0}
+  - {fileID: 11400000, guid: c6eb41df4082ff94586fcdba238a6069, type: 2}
   currProductionRecipe: []
-  stockResourceUnits: []
+  rawResourcesStock: []
+  productStock: []
 --- !u!1 &2056550042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 208277239630310603, guid: 49a20f66af45f3442ac7bcb9e0cf6809, type: 3}

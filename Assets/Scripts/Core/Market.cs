@@ -12,12 +12,12 @@ public class Market : MonoSingleton<Market>
     /// <summary>
     /// 市场总库存
     /// </summary>
-    private Dictionary<int, ResourceUnit> dicMarketStock;
+    private Dictionary<int, ResourceUnit> dicMarketStock = new Dictionary<int, ResourceUnit>();
 
     /// <summary>
     /// 每个资源ID对应提供售卖服务的建筑列表 （有哪些建筑在售卖）
     /// </summary>
-    private Dictionary<int, List<Building>> dicBuildings;
+    private Dictionary<int, List<Building>> dicBuildings = new Dictionary<int, List<Building>>();
 
     /// <summary>
     /// 从市场购买资源

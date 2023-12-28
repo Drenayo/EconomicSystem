@@ -15,50 +15,57 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     #region 参数
 
     // 库存容量，雇员数量，ID，配方，  招募 NPC 计算工资 / 最低和最高上限
+    [LabelText("建筑ID")]
     public int id;
 
     /// <summary>
     /// 最低可接受利润,后续考虑边际成本，该值可变动
     /// </summary>
+    [LabelText("最低可接受利润")]
     public float minAcceptableProfit = 5;
 
     /// <summary>
     /// 利益最大化的误差值 *
     /// </summary>
+    [LabelText("利益最大化的误差值*")]
     public float maxProfitError = 1;
 
     /// <summary>
     /// 最大员工数量
     /// </summary>
+    [LabelText("最大员工数量")]
     public int maxNPCNumber = 3;
 
     // 库存 应该是一个什么概念?，最大多少容量，能存放什么单位，各个单位多少上限     // 暂时先简单 * 暂时没用到
+    [LabelText("最大库存*")]
     public int maxStock = 100;
 
     /// <summary>
     /// 是否正在招工  后续加上招工要求
     /// </summary>
+    [LabelText("是否正在招工")]
     public bool isRecruiting = true;
 
     /// <summary>
     /// 建筑积蓄
     /// </summary>
+    [LabelText("建筑积蓄")]
     public float deposit = 10000;
 
     [LabelText("雇员列表")]
     public List<NPC> npcList;
 
     [LabelText("配方列表")]
-    public List<ProductionRecipe> productionRecipeList;
+    public List<ProductionRecipeData> productionRecipeList = new List<ProductionRecipeData>();
 
     [LabelText("当前生产列表")]
-    public List<ProductionRecipe> currProductionRecipe;
+    public List<ProductionRecipeData> currProductionRecipe = new List<ProductionRecipeData>();
 
     [LabelText("原材料库存单位")]
-    public List<ResourceUnit> rawResourcesStock;
+    public List<ResourceUnit> rawResourcesStock = new List<ResourceUnit>();
 
     [LabelText("产品库存单位")]
-    public List<ResourceUnit> productStock;
+    public List<ResourceUnit> productStock = new List<ResourceUnit>();
 
     #endregion
 
@@ -126,11 +133,12 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
         // 看看积蓄多不多，要不要扩充生产线，招工
         RecruitNPC();
 
+        // 调整今日生产策略
+        ModifyProductionPlan();
+
+
         // 根据今天的生产任务进货（考虑多进货,不要一天一进货） 
         StockUp();
-
-        // 调整生产策略
-        ModifyProductionPlan();
 
         // 生产操作
         foreach (var item in currProductionRecipe)
@@ -148,7 +156,7 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// </summary>
     private void BuyResources()
     {
-        foreach (ProductionRecipe recipe in currProductionRecipe)
+        foreach (ProductionRecipeData recipe in currProductionRecipe)
         {
             foreach (ResourceUnit inputResource in recipe.inputRes)
             {
@@ -201,10 +209,10 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// 获取最大利润的生产配方
     /// </summary>
     /// <returns></returns>
-    private ProductionRecipe GetMaxProfitProductionRecipe()
+    private ProductionRecipeData GetMaxProfitProductionRecipe()
     {
         float maxProfit = 0;
-        ProductionRecipe productionRecipe = null;
+        ProductionRecipeData productionRecipe = null;
         foreach (var item in productionRecipeList)
         {
             if (maxProfit < item.Profit && item.Profit > minAcceptableProfit)
@@ -223,7 +231,7 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     private void StockUp()
     {
         // 新写法: 早晨进货，全部进够生产三次的货
-        foreach (ProductionRecipe recipe in currProductionRecipe)
+        foreach (ProductionRecipeData recipe in currProductionRecipe)
         {
             foreach (ResourceUnit inputResource in recipe.inputRes)
             {
@@ -243,7 +251,7 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// <summary>
     /// 检查生产配方所需原材料是否充足
     /// </summary>
-    private bool IsRawResourceSufficient(ProductionRecipe pr)
+    private bool IsRawResourceSufficient(ProductionRecipeData pr)
     {
         foreach (var item in pr.inputRes)
         {
@@ -256,7 +264,7 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// <summary>
     /// 生产操作
     /// </summary>
-    private bool Produce(ProductionRecipe pr)
+    private bool Produce(ProductionRecipeData pr)
     {
         // 检测当前配方的原材料是否充足，充足就生产
         if(!IsRawResourceSufficient(pr))

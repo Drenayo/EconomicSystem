@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class ProductionRecipe:IProductionRecipe
+/// <summary>
+/// 生产配方数据
+/// </summary>
+[CreateAssetMenu(menuName = "生产配方",fileName = "新配方")]
+public class ProductionRecipeData:ScriptableObject
 {
     /// <summary>
     /// 该生产配方的纯利润
@@ -25,10 +28,14 @@ public class ProductionRecipe:IProductionRecipe
         
     }
 
+    // 生产配方ID
+    public int id;
+
+    // 生产配方名字
+    public string prName;
+
     [LabelText("输入资源")]
     public List<ResourceUnit> inputRes;
     [LabelText("输出资源")]
     public ResourceUnit outputRes;
 }
-
-
