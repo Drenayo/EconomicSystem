@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEngine;
 
 public static class UtilsEx
 {
@@ -78,7 +78,6 @@ public static class UtilsEx
         }
     }
 
-
     /// <summary>
     /// 验证资源是否充足
     /// </summary>
@@ -88,6 +87,7 @@ public static class UtilsEx
     /// <returns></returns>
     public static bool ValidateResourceAvailability(this List<ResourceUnit> list, int resID, int resCount)
     {
+        //Debug.Log($"{resID},{resCount}");
         if (list.HasID(resID))
         {
             foreach (var item in list)
@@ -99,4 +99,7 @@ public static class UtilsEx
         }
         return false;
     }
+
+
+    
 }

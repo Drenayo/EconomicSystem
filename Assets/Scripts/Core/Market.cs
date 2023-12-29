@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System;
 using System.Collections;
@@ -7,23 +8,34 @@ using UnityEngine;
 /// <summary>
 /// 市场类  资源的索引，真正的售卖行为还是建筑类自身
 /// </summary>
-public class Market : MonoSingleton<Market>
+public class Market : SerializedMonoBehaviour
 {
+    public static Market Instance;
+    public void Awake()
+    {
+        Instance = this;
+    }
     /// <summary>
     /// 市场总库存
     /// </summary>
-    private Dictionary<int, ResourceUnit> dicMarketStock = new Dictionary<int, ResourceUnit>();
+    [LabelText("市场总库存")]
+    [DictionaryDrawerSettings()]
+    [ShowInInspector]
+    public Dictionary<int, ResourceUnit> dicMarketStock = new Dictionary<int, ResourceUnit>();
 
     /// <summary>
     /// 每个资源ID对应提供售卖服务的建筑列表 （有哪些建筑在售卖）
     /// </summary>
-    private Dictionary<int, List<Building>> dicBuildings = new Dictionary<int, List<Building>>();
+    [LabelText("建筑列表")]
+    [DictionaryDrawerSettings()]
+    [ShowInInspector]
+    public Dictionary<int, List<Building>> dicBuildings = new Dictionary<int, List<Building>>();
 
     /// <summary>
     /// 从市场购买资源
     /// </summary>
     /// <returns>返回总价，0为无货源</returns>
-    public float BuyResources(int resID,ref int resCount)
+    public float BuyResources(int resID,ref int buyResCount)
     {
         if (dicMarketStock.ContainsKey(resID))
         {
@@ -32,9 +44,17 @@ public class Market : MonoSingleton<Market>
             float price = 0;
             // 遍历建筑列表
             if (dicBuildings.TryGetValue(resID, out buildings))
-                do
-                    price += buildings[index++].SellResources(resID, ref resCount);
-                while (resCount > 0);
+                do 
+                {
+                    int buyResCountTemp = buyResCount;
+                    // 根据建筑列表，购买建筑的资源
+                    price += buildings[index++].SellResources(resID, ref buyResCount);
+                    // 同时维护市场总库存量（减去已经购买的资源（购买的资源存入建筑原材料库，不纳入市场总库存））
+                    dicMarketStock[resID].resCount -= buyResCountTemp - buyResCount;
+                    if(dicMarketStock[resID].resCount <= 0)
+                        dicMarketStock.Remove(resID);
+                }
+                while (buyResCount > 0);
             return price;
         }
         return 0;

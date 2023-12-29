@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// 生产配方数据
 /// </summary>
-[CreateAssetMenu(menuName = "生产配方",fileName = "新配方")]
+[CreateAssetMenu(menuName = "生产图谱",fileName = "新生产图谱")]
 public class ProductionRecipeData:ScriptableObject
 {
     /// <summary>

@@ -84,16 +84,16 @@ public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
     }
 
     // 获取某资源的市场供应量
-    public int CalculateSupply(IResource resource)
+    public int CalculateSupply(int resID)
     {
         int supply = 0;
         foreach (var item in allBuildingList)
         {
-            if (item.productionRecipeList != null && item.currProductionRecipe != null)
+            if (item.currProductionRecipe != null)
             {
                 foreach (var productionRecipe in item.currProductionRecipe)
                 {
-                    if ((resource as ResourceData).id == productionRecipe.outputRes.res.id)
+                    if (resID == productionRecipe.outputRes.res.id)
                     {
                         supply += productionRecipe.outputRes.resCount;
                     }
@@ -104,18 +104,18 @@ public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
     }
 
     // 获取某资源的市场需求量
-    public int CalculateDemand(IResource resource)
+    public int CalculateDemand(int resID)
     {
         int demand = 0;
         foreach (var item in allBuildingList)
         {
-            if (item.productionRecipeList != null && item.currProductionRecipe != null)
+            if (item.currProductionRecipe != null)
             {
                 foreach (var productionRecipe in item.currProductionRecipe)
                 {
                     foreach (var inputRes in productionRecipe.inputRes)
                     {
-                        if ((resource as ResourceData).id == inputRes.res.id)
+                        if (resID == inputRes.res.id)
                         {
                             demand += inputRes.resCount;
                         }

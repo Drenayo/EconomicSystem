@@ -10,6 +10,7 @@ using UnityEngine;
 /// <summary>
 /// 建筑
 /// </summary>
+[System.Serializable]
 public class Building : MonoBehaviour,IEconomicUnit,IBuilding
 {
     #region 参数
@@ -17,6 +18,9 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     // 库存容量，雇员数量，ID，配方，  招募 NPC 计算工资 / 最低和最高上限
     [LabelText("建筑ID")]
     public int id;
+
+    [LabelText("建筑名字")]
+    public string buildingName;
 
     /// <summary>
     /// 最低可接受利润,后续考虑边际成本，该值可变动
@@ -33,8 +37,8 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// <summary>
     /// 最大员工数量
     /// </summary>
-    [LabelText("最大员工数量")]
-    public int maxNPCNumber = 3;
+   // [LabelText("最大员工数量")]
+   // public int maxNPCNumber = 3;
 
     // 库存 应该是一个什么概念?，最大多少容量，能存放什么单位，各个单位多少上限     // 暂时先简单 * 暂时没用到
     [LabelText("最大库存*")]
@@ -52,11 +56,14 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     [LabelText("建筑积蓄")]
     public float deposit = 10000;
 
+    [LabelText("招聘工种列表")]
+    public List<ProfessionData> professionDatas = new List<ProfessionData>();
+
     [LabelText("雇员列表")]
     public List<NPC> npcList;
 
-    [LabelText("配方列表")]
-    public List<ProductionRecipeData> productionRecipeList = new List<ProductionRecipeData>();
+   // [LabelText("配方列表")]
+  //  public List<ProductionRecipeData> productionRecipeList = new List<ProductionRecipeData>();
 
     [LabelText("当前生产列表")]
     public List<ProductionRecipeData> currProductionRecipe = new List<ProductionRecipeData>();
@@ -108,21 +115,35 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     }
 
     /// <summary>
+    /// 面试-检查NPC是否满足招聘条件
+    /// </summary>
+    /// <param name="npc"></param>
+    public bool JobInterview(NPC npc)
+    {
+        foreach (var item in professionDatas)
+        {
+            foreach (var pr in item.recipePRList)
+            {
+                foreach (var graph in npc.acquiredGraph)
+                {
+                    if (pr.id == graph.id)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
     /// 加入该建筑
     /// </summary>
     public void JoinBuilding(NPC npc)
     {
         npcList.Add(npc);
-
         // 检查是否继续招工
-        if (npcList.Count < maxNPCNumber)
-        {
-            isRecruiting = true;
-        }
-        else
-        {
-            isRecruiting = false;
-        }
+        CheckRecruitmentStatus();
     }
 
     /// <summary>
@@ -131,11 +152,10 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     public void Loop()
     {
         // 看看积蓄多不多，要不要扩充生产线，招工
-        RecruitNPC();
+        //CheckRecruitmentStatus();
 
         // 调整今日生产策略
         ModifyProductionPlan();
-
 
         // 根据今天的生产任务进货（考虑多进货,不要一天一进货） 
         StockUp();
@@ -167,14 +187,16 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     }
 
     /// <summary>
-    /// 招募NPC
+    /// 检查招募状态
     /// </summary>
-    private void RecruitNPC()
+    private void CheckRecruitmentStatus()
     {
+        //RecruitNPC
+        //CheckRecruitmentStatus
         // 检查是否可以扩大生产线
 
-        // 检查是否继续招工
-        if (npcList.Count < maxNPCNumber)
+        // 检查是否继续招工 (后续每种职业要有对应的招聘数量，这次就先一个职业一个人)
+        if (npcList.Count < professionDatas.Count)
         {
             isRecruiting = true;
         }
@@ -192,38 +214,39 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// </summary>
     private void ModifyProductionPlan()
     {
+        // 目前：根据雇员学习的图谱来直接生产
+        // 之后：根据雇员与对应岗位对照的图谱来生产
+
         // 生产最大利润的商品（允许误差，真正的商人做不到绝对利益最大化，大致有个方向即可）
 
-        // 目前策略，选出一种利益最大化的配方，然后所有NPC都生产这一种。
-
-        // 根据NPC数量，选择产线数量，（目前策略，一个产线固定一个NPC）
         currProductionRecipe.Clear();
-
-        for (int i = 0; i < npcList.Count; i++)
-        {
-            currProductionRecipe.Add(GetMaxProfitProductionRecipe());
-        }
+        currProductionRecipe.Add(npcList[0].acquiredGraph[0]);
+        //for (int i = 0; i < npcList.Count; i++)
+        //{
+        //    currProductionRecipe.Add(GetMaxProfitProductionRecipe());
+        //}
+        //Debug.Log(gameObject.name + "调整生产策略");
     }
 
     /// <summary>
     /// 获取最大利润的生产配方
     /// </summary>
     /// <returns></returns>
-    private ProductionRecipeData GetMaxProfitProductionRecipe()
-    {
-        float maxProfit = 0;
-        ProductionRecipeData productionRecipe = null;
-        foreach (var item in productionRecipeList)
-        {
-            if (maxProfit < item.Profit && item.Profit > minAcceptableProfit)
-            {
-                maxProfit = item.Profit;
-                productionRecipe = item;
-                //Debug.Log($"价格比较{transform.name}   max{maxPriceTask.productionTask.TaskPrice}  item{item.productionTask.TaskPrice} ");
-            }
-        }
-        return productionRecipe;
-    }
+    //private ProductionRecipeData GetMaxProfitProductionRecipe()
+    //{
+    //    //float maxProfit = 0;
+    //    //ProductionRecipeData productionRecipe = null;
+    //    //foreach (var item in productionRecipeList)
+    //    //{
+    //    //    if (maxProfit < item.Profit && item.Profit > minAcceptableProfit)
+    //    //    {
+    //    //        maxProfit = item.Profit;
+    //    //        productionRecipe = item;
+    //    //        //Debug.Log($"价格比较{transform.name}   max{maxPriceTask.productionTask.TaskPrice}  item{item.productionTask.TaskPrice} ");
+    //    //    }
+    //    //}
+    //    //return productionRecipe;
+    //}
 
     /// <summary>
     /// 买入原材料，增加库存材料
@@ -235,7 +258,9 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
         {
             foreach (ResourceUnit inputResource in recipe.inputRes)
             {
-                float price = Market.Instance.BuyResources(inputResource.ID, ref inputResource.resCount);
+                int resCountRefTemp = inputResource.resCount;
+                // 从市场购买资源
+                float price = Market.Instance.BuyResources(inputResource.ID, ref resCountRefTemp);
                 if (price != 0 && (deposit-price) >= 0)
                 {
                     deposit -= price;
@@ -267,8 +292,11 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     private bool Produce(ProductionRecipeData pr)
     {
         // 检测当前配方的原材料是否充足，充足就生产
-        if(!IsRawResourceSufficient(pr))
+        if (!IsRawResourceSufficient(pr))
+        {
+            Debug.Log("原材料不足" + transform.name + "无法生产" + $"[{pr.outputRes.res.name}]");
             return false;
+        }
 
         // 减去原材料
         foreach (var item in pr.inputRes)

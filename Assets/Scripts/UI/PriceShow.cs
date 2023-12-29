@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PriceShow : MonoBehaviour
 {
-    public Transform showTran;
-    public Text title_Text;
-    public Text info_Text;
-
-    private void Start()
-    {
-        title_Text.text = showTran.name;
-    }
-
+    public Text showText;
     void Update()
     {
+        string displayText = string.Empty;
+        if (Market.Instance.dicMarketStock != null)
+        {
+            foreach (var item in Market.Instance.dicMarketStock)
+            {
+                displayText += string.Format("{0,-10} {1,-10} {2,-10} {3,-10} {4,-10}\n", item.Value.res.resName, item.Value.resCount, item.Value.res.currPrice,EconomicManager.Instance.CalculateSupply(item.Key), EconomicManager.Instance.CalculateDemand(item.Key));
+            }
+        }
+        showText.text = displayText;
+
         //if (showTran != null)
         //{
         //    // 获取Title下所有材料单位节点
