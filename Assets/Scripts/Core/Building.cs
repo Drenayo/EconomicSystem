@@ -1,6 +1,8 @@
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -35,16 +37,6 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     public float maxProfitError = 1;
 
     /// <summary>
-    /// 最大员工数量
-    /// </summary>
-   // [LabelText("最大员工数量")]
-   // public int maxNPCNumber = 3;
-
-    // 库存 应该是一个什么概念?，最大多少容量，能存放什么单位，各个单位多少上限     // 暂时先简单 * 暂时没用到
-    [LabelText("最大库存*")]
-    public int maxStock = 100;
-
-    /// <summary>
     /// 是否正在招工  后续加上招工要求
     /// </summary>
     [LabelText("是否正在招工")]
@@ -56,14 +48,20 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     [LabelText("建筑积蓄")]
     public float deposit = 10000;
 
-    [LabelText("招聘工种列表")]
-    public List<ProfessionData> professionDatas = new List<ProfessionData>();
+    [LabelText("建筑状态")]
+    public string buildingState = string.Empty;
+
+    //[LabelText("招聘工种列表")]
+    //public List<ProfessionData> professionDatas = new List<ProfessionData>();
+
+    [LabelText("岗位列表")]
+    public List<Profession> professions = new List<Profession>();
 
     [LabelText("雇员列表")]
-    public List<NPC> npcList;
+    public List<NPC> npcList = new List<NPC>();
 
-   // [LabelText("配方列表")]
-  //  public List<ProductionRecipeData> productionRecipeList = new List<ProductionRecipeData>();
+    [LabelText("满足条件生产列表")]
+    public List<ProductionRecipeData> productionRecipeList = new List<ProductionRecipeData>();
 
     [LabelText("当前生产列表")]
     public List<ProductionRecipeData> currProductionRecipe = new List<ProductionRecipeData>();
@@ -79,6 +77,12 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
 
 
     #region 公共方法
+    private void Awake()
+    {
+
+    }
+
+
     /// <summary>
     /// 卖出资源
     /// </summary>
@@ -114,34 +118,46 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
         return 0;
     }
 
-    /// <summary>
-    /// 面试-检查NPC是否满足招聘条件
-    /// </summary>
-    /// <param name="npc"></param>
-    public bool JobInterview(NPC npc)
-    {
-        foreach (var item in professionDatas)
-        {
-            foreach (var pr in item.recipePRList)
-            {
-                foreach (var graph in npc.acquiredGraph)
-                {
-                    if (pr.id == graph.id)
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
+    ///// <summary>
+    ///// 面试-检查NPC是否满足招聘条件
+    ///// </summary>
+    ///// <param name="npc"></param>
+    //public bool JobInterview(NPC npc)
+    //{
+    //    foreach (var item in professions)
+    //    {
+    //        foreach (var pr in item.professionData.recipePRList)
+    //        {
+    //            foreach (var graph in npc.acquiredGraph)
+    //            {
+    //                if (pr.id == graph.id)
+    //                {
+    //                    return true;
+    //                }
+    //            }
+    //        }
+    //    }
+    //    return false;
+    //}
 
     /// <summary>
     /// 加入该建筑
     /// </summary>
     public void JoinBuilding(NPC npc)
     {
-        npcList.Add(npc);
+        foreach (var item in professions)
+        {
+            foreach (var pr in item.professionData.recipePRList)
+            {
+                foreach (var graph in npc.acquiredGraph)
+                {
+                    if (pr.id == graph.id)
+                    {
+                        item.EntryPost(npc);
+                    }
+                }
+            }
+        }
         // 检查是否继续招工
         CheckRecruitmentStatus();
     }
@@ -151,6 +167,10 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// </summary>
     public void Loop()
     {
+        
+
+        UpdateState();
+
         // 看看积蓄多不多，要不要扩充生产线，招工
         //CheckRecruitmentStatus();
 
@@ -191,22 +211,14 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// </summary>
     private void CheckRecruitmentStatus()
     {
-        //RecruitNPC
-        //CheckRecruitmentStatus
-        // 检查是否可以扩大生产线
-
-        // 检查是否继续招工 (后续每种职业要有对应的招聘数量，这次就先一个职业一个人)
-        if (npcList.Count < professionDatas.Count)
+        // 检查是否继续招工
+        foreach (var item in professions)
         {
-            isRecruiting = true;
+            if (!item.isRecruiting)
+                isRecruiting = false;
         }
-        else
-        {
-            isRecruiting = false;
-        }
-
-
-        // 招工
+        
+        isRecruiting = true;
     }
 
     /// <summary>
@@ -220,33 +232,27 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
         // 生产最大利润的商品（允许误差，真正的商人做不到绝对利益最大化，大致有个方向即可）
 
         currProductionRecipe.Clear();
-        currProductionRecipe.Add(npcList[0].acquiredGraph[0]);
-        //for (int i = 0; i < npcList.Count; i++)
-        //{
-        //    currProductionRecipe.Add(GetMaxProfitProductionRecipe());
-        //}
-        //Debug.Log(gameObject.name + "调整生产策略");
+
+        // 计算生产任务所得利润是否大于最低接收利润
+        if (npcList[0].acquiredGraph[0].Profit > minAcceptableProfit)
+            currProductionRecipe.Add(npcList[0].acquiredGraph[0]);
+        else
+            buildingState = "利润过低";
+        foreach (var item in professions)
+        {
+            for (int i = 0; i < item.postCount; i++)
+            {
+                // TODO 
+                //currProductionRecipe.Add(item.professionData.);
+            }
+        }
     }
 
-    /// <summary>
-    /// 获取最大利润的生产配方
-    /// </summary>
-    /// <returns></returns>
-    //private ProductionRecipeData GetMaxProfitProductionRecipe()
-    //{
-    //    //float maxProfit = 0;
-    //    //ProductionRecipeData productionRecipe = null;
-    //    //foreach (var item in productionRecipeList)
-    //    //{
-    //    //    if (maxProfit < item.Profit && item.Profit > minAcceptableProfit)
-    //    //    {
-    //    //        maxProfit = item.Profit;
-    //    //        productionRecipe = item;
-    //    //        //Debug.Log($"价格比较{transform.name}   max{maxPriceTask.productionTask.TaskPrice}  item{item.productionTask.TaskPrice} ");
-    //    //    }
-    //    //}
-    //    //return productionRecipe;
-    //}
+    private void UpdateState()
+    {
+        if (!npcList.Any())
+            buildingState = "没有工人";
+    }
 
     /// <summary>
     /// 买入原材料，增加库存材料
@@ -267,22 +273,28 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
                     rawResourcesStock.AddRes(inputResource.ID, inputResource.resCount);
                 }
                 else
-                    Debug.Log(gameObject.name + "进货失败");
-
+                {
+                    buildingState = "无货源";
+                    //Debug.Log(gameObject.name + "进货失败");
+                }
             }
         }
     }
 
     /// <summary>
-    /// 检查生产配方所需原材料是否充足
+    /// 检查建筑是否可以生产
     /// </summary>
-    private bool IsRawResourceSufficient(ProductionRecipeData pr)
+    private bool CheckProductionFeasibility(ProductionRecipeData pr)
     {
         foreach (var item in pr.inputRes)
         {
             if (!rawResourcesStock.ValidateResourceAvailability(item.ID, item.resCount))
+            {
+                //Debug.Log("原材料不足" + transform.name + "无法生产" + $"[{pr.outputRes.res.name}]");
                 return false;
+            }
         }
+        buildingState = "原材料缺失";
         return true;
     }
 
@@ -291,12 +303,9 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// </summary>
     private bool Produce(ProductionRecipeData pr)
     {
-        // 检测当前配方的原材料是否充足，充足就生产
-        if (!IsRawResourceSufficient(pr))
-        {
-            Debug.Log("原材料不足" + transform.name + "无法生产" + $"[{pr.outputRes.res.name}]");
+        // 检测建筑是否可以生产
+        if (!CheckProductionFeasibility(pr))
             return false;
-        }
 
         // 减去原材料
         foreach (var item in pr.inputRes)
@@ -306,6 +315,8 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
         productStock.AddRes(pr.outputRes.ID, pr.outputRes.resCount);
         // 推送到市场
         Market.Instance.PushResources(pr.outputRes.ID, pr.outputRes.resCount, id);
+
+        buildingState = $"生产了{pr.outputRes.res.resName}";
         return true;
     }
 

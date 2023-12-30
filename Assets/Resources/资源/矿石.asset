@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 4
   resName: "\u77FF\u77F3"
   level: 1
-  originalPrice: 5
-  balancePrice: 5
-  currPrice: 5
+  originalPrice: 10
+  balancePrice: 10
+  currPrice: 10

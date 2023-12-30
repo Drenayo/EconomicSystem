@@ -3,6 +3,7 @@ using Sirenix.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -43,7 +44,7 @@ public class Market : SerializedMonoBehaviour
             int index = 0;
             float price = 0;
             // 遍历建筑列表
-            if (dicBuildings.TryGetValue(resID, out buildings))
+            if (dicBuildings.TryGetValue(resID, out buildings) && buildings.Any())
                 do 
                 {
                     int buyResCountTemp = buyResCount;

@@ -19,7 +19,9 @@ public class NPC : MonoBehaviour,IEconomicUnit,INPC
     // 存款
     public float deposit;
 
-    // 工作单位
+    /// <summary>
+    /// NPC工作单位
+    /// </summary>
     public Building building;
 
     [LabelText("NPC学会的技能")]
@@ -37,7 +39,7 @@ public class NPC : MonoBehaviour,IEconomicUnit,INPC
         {
             // 查看建筑是否还在招工
             Building buildingTemp = item as Building;
-            if (buildingTemp.isRecruiting && buildingTemp.JobInterview(this))
+            if (buildingTemp.isRecruiting)
             {
                 // 加入
                 buildingTemp.JoinBuilding(this);

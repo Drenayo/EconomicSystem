@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -18,13 +19,13 @@ public class ResourceData : ScriptableObject
     // 资源等级
     public Level level;
 
-    // 初始价格
+    [LabelText("初始价格")]
     public float originalPrice;
 
-    // 均衡价格
+    [LabelText("均衡价格")]
     public float balancePrice;
 
-    // 当前价格
+    [LabelText("当前价格")]
     public float currPrice;
 }
 
