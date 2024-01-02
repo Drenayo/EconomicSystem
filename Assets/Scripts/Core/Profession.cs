@@ -13,7 +13,7 @@ public class Profession
     public string id;
 
     // 岗位基本数据
-    [LabelText("岗位数据")]
+    [LabelText("岗位职业数据")]
     public ProfessionData professionData;
 
     // 基本薪资数据在模板上，实际奖励加成薪资，在实例中
@@ -33,13 +33,14 @@ public class Profession
     /// <summary>
     /// 入职
     /// </summary>
-    public void EntryPost(NPC npc)
+    public bool EntryPost(NPC npc)
     {
+        bool bo = false;
         if (maxCount > postCount)
         {
             npcList.Add(npc);
             postCount++;
-            
+            bo = true;
         }
 
 
@@ -51,5 +52,7 @@ public class Profession
         {
             isRecruiting = false;
         }
+
+        return bo;
     }
 }

@@ -21,4 +21,4 @@ MonoBehaviour:
     resCount: 1
   outputRes:
     res: {fileID: 11400000, guid: fd4f6bb584da3344394215ad3d731655, type: 2}
-    resCount: 13
+    resCount: 15

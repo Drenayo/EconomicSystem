@@ -51,17 +51,11 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     [LabelText("建筑状态")]
     public string buildingState = string.Empty;
 
-    //[LabelText("招聘工种列表")]
-    //public List<ProfessionData> professionDatas = new List<ProfessionData>();
-
     [LabelText("岗位列表")]
     public List<Profession> professions = new List<Profession>();
 
     [LabelText("雇员列表")]
     public List<NPC> npcList = new List<NPC>();
-
-    [LabelText("满足条件生产列表")]
-    public List<ProductionRecipeData> productionRecipeList = new List<ProductionRecipeData>();
 
     [LabelText("当前生产列表")]
     public List<ProductionRecipeData> currProductionRecipe = new List<ProductionRecipeData>();
@@ -118,28 +112,6 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
         return 0;
     }
 
-    ///// <summary>
-    ///// 面试-检查NPC是否满足招聘条件
-    ///// </summary>
-    ///// <param name="npc"></param>
-    //public bool JobInterview(NPC npc)
-    //{
-    //    foreach (var item in professions)
-    //    {
-    //        foreach (var pr in item.professionData.recipePRList)
-    //        {
-    //            foreach (var graph in npc.acquiredGraph)
-    //            {
-    //                if (pr.id == graph.id)
-    //                {
-    //                    return true;
-    //                }
-    //            }
-    //        }
-    //    }
-    //    return false;
-    //}
-
     /// <summary>
     /// 加入该建筑
     /// </summary>
@@ -147,13 +119,16 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     {
         foreach (var item in professions)
         {
-            foreach (var pr in item.professionData.recipePRList)
+            if (item.isRecruiting)
             {
                 foreach (var graph in npc.acquiredGraph)
                 {
-                    if (pr.id == graph.id)
+                    if (item.professionData.recipePRList[0].id == graph.id)
                     {
-                        item.EntryPost(npc);
+                        if (item.EntryPost(npc))
+                            npcList.Add(npc);
+                        // else
+                        //Debug.Log("加入失败");
                     }
                 }
             }
@@ -167,8 +142,6 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// </summary>
     public void Loop()
     {
-        
-
         UpdateState();
 
         // 看看积蓄多不多，要不要扩充生产线，招工
@@ -226,24 +199,25 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// </summary>
     private void ModifyProductionPlan()
     {
-        // 目前：根据雇员学习的图谱来直接生产
-        // 之后：根据雇员与对应岗位对照的图谱来生产
-
         // 生产最大利润的商品（允许误差，真正的商人做不到绝对利益最大化，大致有个方向即可）
-
         currProductionRecipe.Clear();
 
+
+        //if (npcList[0].acquiredGraph[0].Profit > minAcceptableProfit)
+        //    currProductionRecipe.Add(npcList[0].acquiredGraph[0]);
+        //else
+        //    buildingState = "利润过低";
+
         // 计算生产任务所得利润是否大于最低接收利润
-        if (npcList[0].acquiredGraph[0].Profit > minAcceptableProfit)
-            currProductionRecipe.Add(npcList[0].acquiredGraph[0]);
-        else
-            buildingState = "利润过低";
         foreach (var item in professions)
         {
+            // 检查岗位人数，检查该岗位的职业数据，一个岗位对应一个职业，虽然写成了List,但是设计思路是1：1
             for (int i = 0; i < item.postCount; i++)
             {
-                // TODO 
-                //currProductionRecipe.Add(item.professionData.);
+                if (item.professionData.recipePRList[0].Profit > minAcceptableProfit)
+                    currProductionRecipe.Add(item.professionData.recipePRList[0]);
+                else
+                    buildingState = "利润过低";
             }
         }
     }
@@ -259,24 +233,37 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// </summary>
     private void StockUp()
     {
-        // 新写法: 早晨进货，全部进够生产三次的货
+        // 先遍历一次，拿到进货总量
+        List<ResourceUnit> stockUpList = new List<ResourceUnit>();
         foreach (ProductionRecipeData recipe in currProductionRecipe)
         {
             foreach (ResourceUnit inputResource in recipe.inputRes)
             {
-                int resCountRefTemp = inputResource.resCount;
-                // 从市场购买资源
-                float price = Market.Instance.BuyResources(inputResource.ID, ref resCountRefTemp);
-                if (price != 0 && (deposit-price) >= 0)
-                {
-                    deposit -= price;
-                    rawResourcesStock.AddRes(inputResource.ID, inputResource.resCount);
-                }
-                else
-                {
-                    buildingState = "无货源";
-                    //Debug.Log(gameObject.name + "进货失败");
-                }
+                stockUpList.AddRes(inputResource.ID,inputResource.resCount);
+            }
+        }
+
+        // 与库存对比，削去多余的进货量
+        foreach (var item in rawResourcesStock)
+        {
+            stockUpList.SubRes(item.ID, item.resCount);
+        }
+        
+        // 进货
+        foreach (ResourceUnit stockUpUnit in stockUpList)
+        {
+            int resCountRefTemp = stockUpUnit.resCount;
+            // 从市场购买资源
+            float price = Market.Instance.BuyResources(stockUpUnit.ID, ref resCountRefTemp);
+            if (price != 0 && (deposit-price) >= 0)
+            {
+                deposit -= price;
+                rawResourcesStock.AddRes(stockUpUnit.ID, stockUpUnit.resCount);
+            }
+            else
+            {
+                buildingState = "无货源";
+                //Debug.Log(gameObject.name + "进货失败");
             }
         }
     }

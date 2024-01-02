@@ -253,6 +253,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &546309858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546309859}
+  - component: {fileID: 546309860}
+  m_Layer: 0
+  m_Name: "\u9648\u96C5\u99A8 \u7CAE\u98DF"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &546309859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546309858}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1085266048}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &546309860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546309858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366e8cdfe9f57a4459188982414c180b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 33
+  npcName: 
+  genderType: 0
+  age: 49
+  deposit: 4185.79
+  building: {fileID: 0}
+  acquiredGraph:
+  - {fileID: 11400000, guid: c6eb41df4082ff94586fcdba238a6069, type: 2}
+  workType: 0
 --- !u!1 &629677458
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +479,9 @@ Transform:
   - {fileID: 2106174816266144233}
   - {fileID: 4398984441157528000}
   - {fileID: 7501592754819672076}
+  - {fileID: 546309859}
   - {fileID: 6863545639071809441}
+  - {fileID: 1910895037}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -760,6 +815,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1910895036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910895037}
+  - component: {fileID: 1910895038}
+  m_Layer: 0
+  m_Name: "\u9648\u5A03\u5A03 \u7CAE\u98DF"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1910895037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910895036}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1085266048}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1910895038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910895036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366e8cdfe9f57a4459188982414c180b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 333
+  npcName: 
+  genderType: 0
+  age: 49
+  deposit: 4185.79
+  building: {fileID: 0}
+  acquiredGraph:
+  - {fileID: 11400000, guid: c6eb41df4082ff94586fcdba238a6069, type: 2}
+  workType: 0
 --- !u!1 &1915194524
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,16 +1008,20 @@ MonoBehaviour:
   isRecruiting: 1
   deposit: 100
   buildingState: 
-  professions: []
-  npcList:
-  - {fileID: 4625653823601121332}
-  productionRecipeList: []
+  professions:
+  - id: 1
+    professionData: {fileID: 11400000, guid: 3e87bb036c8dca141bf964f9e5868765, type: 2}
+    maxCount: 1
+    postCount: 0
+    isRecruiting: 1
+    npcList: []
+  npcList: []
   currProductionRecipe: []
   rawResourcesStock:
   - res: {fileID: 11400000, guid: fd4f6bb584da3344394215ad3d731655, type: 2}
-    resCount: 3
+    resCount: 6
   - res: {fileID: 11400000, guid: 3aa342be269c14f498784a1ba52ce6b2, type: 2}
-    resCount: 2
+    resCount: 4
   productStock: []
 --- !u!1001 &557309365379176974
 PrefabInstance:
@@ -1149,10 +1261,14 @@ MonoBehaviour:
   isRecruiting: 1
   deposit: 100
   buildingState: 
-  professions: []
-  npcList:
-  - {fileID: 8970109346101499698}
-  productionRecipeList: []
+  professions:
+  - id: 2
+    professionData: {fileID: 11400000, guid: ccae5db894e5225478ffe124fa95ac31, type: 2}
+    maxCount: 3
+    postCount: 0
+    isRecruiting: 1
+    npcList: []
+  npcList: []
   currProductionRecipe: []
   rawResourcesStock: []
   productStock: []
@@ -1256,7 +1372,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1085266048}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6956531854291416853
 MonoBehaviour:
@@ -1277,10 +1393,20 @@ MonoBehaviour:
   isRecruiting: 1
   deposit: 100
   buildingState: 
-  professions: []
-  npcList:
-  - {fileID: 2243828068779698896}
-  productionRecipeList: []
+  professions:
+  - id: 4
+    professionData: {fileID: 11400000, guid: 7835f09addf48ce419aa424eb871fd9b, type: 2}
+    maxCount: 2
+    postCount: 0
+    isRecruiting: 1
+    npcList: []
+  - id: 44
+    professionData: {fileID: 11400000, guid: 74994c22f6cb1804dac245734c30c981, type: 2}
+    maxCount: 2
+    postCount: 0
+    isRecruiting: 1
+    npcList: []
+  npcList: []
   currProductionRecipe: []
   rawResourcesStock: []
   productStock: []
@@ -1782,10 +1908,14 @@ MonoBehaviour:
   isRecruiting: 1
   deposit: 100
   buildingState: 
-  professions: []
-  npcList:
-  - {fileID: 7120762423454750210}
-  productionRecipeList: []
+  professions:
+  - id: 3
+    professionData: {fileID: 11400000, guid: f4dad028d9a964a448e4af6f7a736a2f, type: 2}
+    maxCount: 4
+    postCount: 0
+    isRecruiting: 1
+    npcList: []
+  npcList: []
   currProductionRecipe: []
   rawResourcesStock: []
   productStock: []
