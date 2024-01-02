@@ -113,8 +113,9 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
     /// <summary>
     /// 加入该建筑
     /// </summary>
-    public void JoinBuilding(NPC npc)
+    public bool JoinBuilding(NPC npc)
     {
+        bool isJoin = false;
         foreach (var item in professions)
         {
             if (item.isRecruiting)
@@ -124,7 +125,11 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
                     if (item.professionData.recipePRList[0].id == graph.id)
                     {
                         if (item.EntryPost(npc))
+                        {
                             npcList.Add(npc);
+                            isJoin = true;
+                        }
+                            
                         // else
                         //Debug.Log("加入失败");
                     }
@@ -133,6 +138,7 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
         }
         // 检查是否继续招工
         CheckRecruitmentStatus();
+        return isJoin;
     }
 
     /// <summary>
@@ -253,6 +259,9 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
             int resCountRefTemp = stockUpUnit.resCount;
             // 从市场购买资源
             float price = Market.Instance.BuyResources(stockUpUnit.ID, ref resCountRefTemp);
+           // Debug.Log(price);
+
+          //  Debug.Log(price != 0 && (deposit - price) >= 0);
             if (price != 0 && (deposit-price) >= 0)
             {
                 deposit -= price;

@@ -17,11 +17,18 @@ public class EconomySystem : MonoBehaviour
     }
 
     /// <summary>
-    /// 经济系统循环
+    /// 经济系统 Main-循环
     /// </summary>
     public void EconomySystemLoop()
     {
+        // 经济实体循环
         InvokeEntityLoop();
+
+        // 市场价格调整
+        foreach (var item in EconomicManager.Instance.allResourceData)
+        {
+           item.currPrice = AdjustResPrice(item.id);
+        }
     }
 
     // 调用经济实体循环
@@ -34,17 +41,24 @@ public class EconomySystem : MonoBehaviour
 
 
 
+    private float AdjustResPrice(int resID)
+    {
+        ResourceData resData = EconomicManager.Instance.GetResourceDataByID(resID);
+        float price = AdjustPriceBasedOnSupplyDemand(resData.originalPrice, economicManager.CalculateDemand(resID), economicManager.CalculateSupply(resID));
+        return price;
+    }
+
     /// <summary>
-    /// 根据供需关系调整资源价格
+    /// 根据供需关系调整价格
     /// </summary>
-    /// <param name="resource">资源</param>
+    /// <param name="resource">原始价格</param>
     /// <param name="quantityDemanded">需求量</param>
     /// <param name="supplyQuantity">供应量</param>
     /// <returns></returns>
-    private float AdjustPrice(float quantityDemanded, float supplyQuantity)
+    private float AdjustPriceBasedOnSupplyDemand(float originalPrice,float quantityDemanded, float supplyQuantity)
     {
-        float adjustedPrice = 0; // 这里记得赋值，原始价格
-
+        float adjustedPrice = originalPrice; // 这里记得赋值，原始价格
+        Debug.Log(adjustedPrice);
         // 设置供需比的阈值，低于这个阈值不进行价格调整
         float imbalanceThreshold = 0.2f;
 

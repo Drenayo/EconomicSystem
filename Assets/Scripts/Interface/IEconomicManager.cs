@@ -17,11 +17,11 @@ public interface IEconomicManager
     /// <summary>
     /// 获取某个资源的市场供应量
     /// </summary>
-    int CalculateSupply(int resource);
+    int CalculateSupply(int resID);
 
     /// <summary>
     /// 获取某个资源的市场需求量
     /// </summary>
-    int CalculateDemand(int resource);
+    int CalculateDemand(int resID);
 
 }

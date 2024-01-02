@@ -39,10 +39,9 @@ public class NPC : MonoBehaviour,IEconomicUnit,INPC
         {
             // 查看建筑是否还在招工
             Building buildingTemp = item as Building;
-            if (buildingTemp.isRecruiting)
+            if (buildingTemp.isRecruiting && buildingTemp.JoinBuilding(this))
             {
                 // 加入
-                buildingTemp.JoinBuilding(this);
                 building = buildingTemp;
             }
         }
