@@ -7,8 +7,6 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-// TODO 市场，建筑从市场进货，放到市场上的才会被售卖，目前默认生产的物品就是被放到市场售卖的，市场是时刻更新的，保证每个建筑最新产出可以投放到市场上
-
 /// <summary>
 /// 建筑
 /// </summary>
@@ -243,7 +241,7 @@ public class Building : MonoBehaviour,IEconomicUnit,IBuilding
             }
         }
 
-        // 与库存对比，削去多余的进货量
+        // 与库存对比，削去多余的进货量, （留百分之10%的余量：未实现）
         foreach (var item in rawResourcesStock)
         {
             stockUpList.SubRes(item.ID, item.resCount);
