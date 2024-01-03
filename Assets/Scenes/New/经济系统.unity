@@ -1011,7 +1011,7 @@ MonoBehaviour:
   professions:
   - id: 1
     professionData: {fileID: 11400000, guid: 3e87bb036c8dca141bf964f9e5868765, type: 2}
-    maxCount: 1
+    maxCount: 2
     postCount: 0
     isRecruiting: 1
     npcList: []
@@ -1019,9 +1019,9 @@ MonoBehaviour:
   currProductionRecipe: []
   rawResourcesStock:
   - res: {fileID: 11400000, guid: fd4f6bb584da3344394215ad3d731655, type: 2}
-    resCount: 6
+    resCount: 10
   - res: {fileID: 11400000, guid: 3aa342be269c14f498784a1ba52ce6b2, type: 2}
-    resCount: 4
+    resCount: 6
   productStock: []
 --- !u!1001 &557309365379176974
 PrefabInstance:

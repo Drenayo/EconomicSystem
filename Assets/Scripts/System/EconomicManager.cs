@@ -17,6 +17,16 @@ public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
     // 资源模板列表
     public List<ResourceData> allResourceData;
 
+    /// <summary>
+    /// 历史供应量 30天
+    /// </summary>
+    private Dictionary<int, List<int>> historicalSupply;
+
+    /// <summary>
+    /// 历史需求量 30天
+    /// </summary>
+    private Dictionary<int, List<int>> historicalDemand;
+
     private void Start()
     {
         Load();
@@ -126,4 +136,18 @@ public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
         return demand;
     }
 
+
+    public void Loop()
+    {
+        
+    }
+
+
+    private void OnDestroy()
+    {
+        foreach(var item in allResourceData) 
+        {
+            item.currPrice = item.originalPrice;
+        }
+    }
 }

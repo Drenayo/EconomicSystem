@@ -9,7 +9,7 @@ using UnityEngine;
 /// <summary>
 /// 市场类  资源的索引，真正的售卖行为还是建筑类自身
 /// </summary>
-public class Market : SerializedMonoBehaviour
+public class Market : SerializedMonoBehaviour,IMarket
 {
     public static Market Instance;
     public void Awake()
@@ -89,4 +89,6 @@ public class Market : SerializedMonoBehaviour
         }
 
     }
+
+    
 }

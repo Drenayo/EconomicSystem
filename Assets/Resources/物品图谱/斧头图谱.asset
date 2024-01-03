@@ -23,4 +23,4 @@ MonoBehaviour:
     resCount: 3
   outputRes:
     res: {fileID: 11400000, guid: 3aa342be269c14f498784a1ba52ce6b2, type: 2}
-    resCount: 3
+    resCount: 2
