@@ -25,6 +25,14 @@ public class EconomySystem : MonoBehaviour
         InvokeEntityLoop();
 
         // 市场价格调整
+        // 思路
+        /*
+         * 不应该以当日的供应量和需求了，也应该考虑日益增长的总库存量，以及未来一个月的平均消耗量
+         * 拿到当日市场总量，拿到过去一个月的平均供应量和需求量，做一个预计算
+         * 
+         * 
+         * 
+         */
         foreach (var item in EconomicManager.Instance.allResourceData)
         {
            item.currPrice = AdjustResPrice(item.id);
