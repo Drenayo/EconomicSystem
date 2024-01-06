@@ -5,33 +5,39 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
+public class EconomicManager : MonoSingleton<EconomicManager>, IEconomicManager
 {
     public Transform buildingParent;
     public Transform NPCParent;
 
     // 建筑列表
-    public List<Building> allBuildingList;
+    [SerializeField] private List<Building> allBuildingList;
     // NPC列表
-    public List<NPC> allNPCList;
+    [SerializeField] private List<NPC> allNPCList;
     // 资源模板列表
-    public List<ResourceData> allResourceData;
+    [SerializeField] private List<ResourceData> allResourceDataList;
 
     /// <summary>
-    /// 历史供应量 30天
+    /// 历史供应量
     /// </summary>
-    private Dictionary<int, List<int>> historicalSupply;
+    [SerializeField] private Dictionary<int, List<int>> historicalSupply;
 
     /// <summary>
-    /// 历史需求量 30天
+    /// 历史需求量
     /// </summary>
-    private Dictionary<int, List<int>> historicalDemand;
+    [SerializeField] private Dictionary<int, List<int>> historicalDemand;
 
     private void Start()
     {
         Load();
     }
-
+    private void OnDestroy()
+    {
+        foreach (var item in allResourceDataList)
+        {
+            item.currPrice = item.originalPrice;
+        }
+    }
     private void Load()
     {
         foreach (Transform item in buildingParent)
@@ -48,38 +54,11 @@ public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
         // 读取所有资源
         foreach (ResourceData item in Resources.LoadAll<ResourceData>("资源/"))
         {
-            allResourceData.Add(item);
+            allResourceDataList.Add(item);
         }
     }
 
 
-
-    public List<IBuilding> GetBuildingList()
-    {
-        return allBuildingList.ConvertAll<IBuilding>(x => x);
-    }
-
-    public List<IEconomicUnit> GetAllEconomicEntity()
-    {
-        return allBuildingList.Cast<IEconomicUnit>()
-                .Concat(allNPCList.Cast<IEconomicUnit>())
-                .ToList();
-    }
-    
-    /// <summary>
-    /// 通过ID拿到对应资源Data
-    /// </summary>
-    /// <returns></returns>
-    public ResourceData GetResourceDataByID(int resID)
-    {
-        foreach (var item in allResourceData)
-        {
-            if(item.id == resID)
-                return item;
-        }
-        return null;
-    }
-    
     /// <summary>
     /// 通过ID拿到对应建筑实例
     /// </summary>
@@ -93,8 +72,23 @@ public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
         return null;
     }
 
-    // 获取某资源的市场供应量
-    public int CalculateSupply(int resID)
+    /// <summary>
+    /// 通过ID拿到对应资源Data
+    /// </summary>
+    /// <returns></returns>
+    public ResourceData GetResourceDataByID(int resID)
+    {
+        foreach (var item in allResourceDataList)
+        {
+            if(item.id == resID)
+                return item;
+        }
+        return null;
+    }
+    
+    #region 接口实现
+
+    public int GetMarketSupply(int resID)
     {
         int supply = 0;
         foreach (var item in allBuildingList)
@@ -113,8 +107,7 @@ public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
         return supply;
     }
 
-    // 获取某资源的市场需求量
-    public int CalculateDemand(int resID)
+    public int GetMarketDemand(int resID)
     {
         int demand = 0;
         foreach (var item in allBuildingList)
@@ -135,19 +128,38 @@ public class EconomicManager : MonoSingleton<EconomicManager>,IEconomicManager
         }
         return demand;
     }
-
-
-    public void Loop()
+    
+    public List<IBuilding> GetBuildingList()
     {
-        
+        return allBuildingList.ConvertAll<IBuilding>(x => x);
     }
 
-
-    private void OnDestroy()
+    public List<IEconomicUnit> GetAllEconomicEntity()
     {
-        foreach(var item in allResourceData) 
-        {
-            item.currPrice = item.originalPrice;
-        }
+        return allBuildingList.Cast<IEconomicUnit>()
+                .Concat(allNPCList.Cast<IEconomicUnit>())
+                .ToList();
     }
+
+    public List<IResourceData> GetResourcesDataList()
+    {
+        return allResourceDataList.ConvertAll<IResourceData>(x => x);
+    }
+
+    public Dictionary<int, List<int>> GetHistoricalSupply(int hisDays)
+    {
+        return historicalSupply;
+    }
+
+    public Dictionary<int, List<int>> GetHistoricalDemand(int hisDays)
+    {
+        return historicalDemand;
+    }
+
+    public int GetMarketTotalQuantity(int resID)
+    {
+        return Market.Instance.dicMarketStock[resID].resCount;
+    }
+
+    #endregion
 }

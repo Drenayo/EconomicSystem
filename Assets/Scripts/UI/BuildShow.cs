@@ -10,14 +10,15 @@ public class BuildShow : MonoBehaviour
     void Update()
     {
         string displayText = string.Empty;
-        if (EconomicManager.Instance.allBuildingList != null && EconomicManager.Instance.allBuildingList.Count > 0)
+        if (EconomicManager.Instance.GetBuildingList() != null && EconomicManager.Instance.GetBuildingList().Count > 0)
         {
-            foreach (var item in EconomicManager.Instance.allBuildingList)
+            foreach (var item in EconomicManager.Instance.GetBuildingList())
             {
-                if(item.currProductionRecipe.Count > 0)
-                    displayText += string.Format("{0,-10}{1,-10}{2,-10:F1}{3,-10}\n", item.buildingName, item.buildingState.ToString(), item.deposit, item?.currProductionRecipe[0]?.outputRes?.res?.resName);
+                Building building = item as Building;   
+                if(building.currProductionRecipe.Count > 0)
+                    displayText += string.Format("{0,-10}{1,-10}{2,-10:F1}{3,-10}\n", building.buildingName, building.buildingState.ToString(), building.deposit, building?.currProductionRecipe[0]?.outputRes?.res?.resName);
                 else
-                    displayText += string.Format("{0,-10}{1,-10}{2,-10}{3,-10}\n", item.buildingName, item.buildingState.ToString(), item.deposit, "null");
+                    displayText += string.Format("{0,-10}{1,-10}{2,-10}{3,-10}\n", building.buildingName, building.buildingState.ToString(), building.deposit, "null");
 
             }
         }

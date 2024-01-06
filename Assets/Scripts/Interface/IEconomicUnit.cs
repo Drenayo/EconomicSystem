@@ -7,8 +7,6 @@ using UnityEngine;
 /// </summary>
 public interface IEconomicUnit
 {
-    // 得到价格
-
     /// <summary>
     /// 经济个体循环
     /// </summary>

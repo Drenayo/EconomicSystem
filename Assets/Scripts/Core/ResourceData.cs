@@ -8,7 +8,7 @@ using UnityEngine;
 /// 资源类
 /// </summary>
 [CreateAssetMenu(menuName = "资源数据", fileName = "新资源")]
-public class ResourceData : ScriptableObject
+public class ResourceData : ScriptableObject, IResourceData
 {
     // 资源ID
     public int id;
@@ -19,6 +19,8 @@ public class ResourceData : ScriptableObject
     // 资源等级
     public Level level;
 
+    public int ResCount { get { return Market.Instance.dicMarketStock[id].resCount; } }
+
     [LabelText("初始价格")]
     public float originalPrice;
 
@@ -27,10 +29,17 @@ public class ResourceData : ScriptableObject
 
     [LabelText("当前价格")]
     public float currPrice;
+
+    public int GetID()
+    {
+        return id;
+    }
+    public void SetPrice(float price)
+    {
+        currPrice = price;
+    }
+    public float GetCurrPrice() 
+    {
+        return currPrice;
+    }
 }
-
-
-//public class ResourceData 
-//{
-    
-//}

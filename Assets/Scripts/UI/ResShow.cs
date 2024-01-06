@@ -14,7 +14,7 @@ public class ResShow : MonoBehaviour
         {
             foreach (var item in Market.Instance.dicMarketStock)
             {
-                displayText += string.Format("{0,-10} {1,-10} {2,-10:F1} {3,-10} {4,-10}\n", item.Value.res.resName, item.Value.resCount, item.Value.res.currPrice,EconomicManager.Instance.CalculateSupply(item.Key), EconomicManager.Instance.CalculateDemand(item.Key));
+                displayText += string.Format("{0,-10} {1,-10} {2,-10:F1} {3,-10} {4,-10}\n", item.Value.res.resName, item.Value.resCount, item.Value.res.currPrice,EconomicManager.Instance.GetMarketSupply(item.Key), EconomicManager.Instance.GetMarketDemand(item.Key));
             }
         }
         showText.text = displayText;

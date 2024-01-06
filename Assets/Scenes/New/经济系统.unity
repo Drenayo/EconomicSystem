@@ -440,9 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f6f14231c0890488fb620c9d645e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLoopEvent:
-    m_PersistentCalls:
-      m_Calls: []
   callInterval: 0.1
   totalDaysElapsed: 0
   isStop: 0
@@ -718,7 +715,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1444071821}
-  - component: {fileID: 1444071823}
   - component: {fileID: 1444071824}
   m_Layer: 0
   m_Name: "\u7ECF\u6D4E\u7CFB\u7EDF"
@@ -742,18 +738,6 @@ Transform:
   m_Father: {fileID: 317950353}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1444071823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444071819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83ebe33d3ebad84b919b36905074371, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1444071824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,7 +754,7 @@ MonoBehaviour:
   NPCParent: {fileID: 1085266048}
   allBuildingList: []
   allNPCList: []
-  allResourceData: []
+  allResourceDataList: []
 --- !u!1 &1749065494
 GameObject:
   m_ObjectHideFlags: 0

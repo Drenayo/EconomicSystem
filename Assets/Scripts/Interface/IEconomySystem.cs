@@ -16,6 +16,4 @@ public interface IEconomySystem
     /// 获取资源列表
     /// </summary>
     List<IEconomicUnit> GetResourceList();
-
-
 }
