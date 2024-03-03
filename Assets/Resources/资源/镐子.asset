@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6566611cf0c683c41be026621cbe87e8, type: 3}
-  m_Name: "\u7CAE\u98DF"
+  m_Name: "\u9550\u5B50"
   m_EditorClassIdentifier: 
-  id: 1
-  resName: "\u7CAE\u98DF"
+  id: 3
+  resName: "\u9550\u5B50"
   level: 1
-  originalPrice: 2
-  balancePrice: 2
-  currPrice: 2
+  originalPrice: 10
+  balancePrice: 10
+  currPrice: 10

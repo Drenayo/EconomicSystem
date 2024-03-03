@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6566611cf0c683c41be026621cbe87e8, type: 3}
-  m_Name: "\u7CAE\u98DF"
+  m_Script: {fileID: 11500000, guid: d63b9b369a69a2549924fad76e40fb77, type: 3}
+  m_Name: "\u9550\u5B50\u5236\u4F5C\u5E08"
   m_EditorClassIdentifier: 
   id: 1
-  resName: "\u7CAE\u98DF"
-  level: 1
-  originalPrice: 2
-  balancePrice: 2
-  currPrice: 2
+  professionName: "\u9550\u5B50\u5236\u4F5C\u5E08"
+  professionLevel: 0
+  jobMoney: 1000
+  recipePRList:
+  - {fileID: 11400000, guid: 2d6b022aa8100d347a4bcfd93c06dfb5, type: 2}

@@ -16,7 +16,9 @@ MonoBehaviour:
   prName: "\u6728\u5934\u56FE\u8C31"
   inputRes:
   - res: {fileID: 11400000, guid: fd4f6bb584da3344394215ad3d731655, type: 2}
-    resCount: 3
+    resCount: 1
+  - res: {fileID: 11400000, guid: 3aa342be269c14f498784a1ba52ce6b2, type: 2}
+    resCount: 1
   outputRes:
     res: {fileID: 11400000, guid: eed2320686b1f1a429ac35b38e79cf2e, type: 2}
-    resCount: 3
+    resCount: 4

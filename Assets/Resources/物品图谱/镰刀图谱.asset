@@ -20,7 +20,7 @@ MonoBehaviour:
   - res: {fileID: 11400000, guid: df97cf16074eb2649ab9090adf3fe1bd, type: 2}
     resCount: 1
   - res: {fileID: 11400000, guid: fd4f6bb584da3344394215ad3d731655, type: 2}
-    resCount: 3
+    resCount: 1
   outputRes:
     res: {fileID: 11400000, guid: 1e0a4115a50ff1c41be75e03a580e415, type: 2}
-    resCount: 1
+    resCount: 2

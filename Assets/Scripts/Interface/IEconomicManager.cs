@@ -46,4 +46,6 @@ public interface IEconomicManager
     /// <param name="hisDays">指定天数</param>
     Dictionary<int, List<int>> GetHistoricalDemand(int hisDays);
 
+    
+
 }
