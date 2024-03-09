@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,15 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Btn_NPC()
+    {
+
+    }
+
+    public void Btn_Building()
+    {
+
     }
 }

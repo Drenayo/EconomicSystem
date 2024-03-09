@@ -14,13 +14,3 @@ public enum BuildingState
     生产中,
     停产中
 }
-
-public enum Level
-{
-    None,
-    One,
-    Two,
-    Three,
-    Four,
-    Five
-}

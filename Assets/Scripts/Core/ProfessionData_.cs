@@ -7,7 +7,7 @@ using UnityEngine;
 /// 职业类
 /// </summary>
 [CreateAssetMenu(menuName = "职业", fileName = "新职业")]
-public class ProfessionData:ScriptableObject
+public class ProfessionData_:ScriptableObject
 {
     // 职业ID
     public int id;

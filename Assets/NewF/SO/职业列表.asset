@@ -1,0 +1,439 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7c7819ec705c54abfbb84df5466e60, type: 3}
+  m_Name: "\u804C\u4E1A\u5217\u8868"
+  m_EditorClassIdentifier: 
+  listProfession:
+  - ProfessionID: 2
+    ProfessionName: "\u53A8\u5E08"
+    actionUnLock: 0
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 
+    listProfessionPreAbility: 
+    preProfessionID: 0
+    professionLevel: 0
+    ClothName: 
+    ListJobAction: 01000000
+    occupationType: 4
+    baseWorkValue: 40
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 7
+    ProfessionName: "\u5C0F\u4E8C"
+    actionUnLock: 0
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 
+    listProfessionPreAbility: 
+    preProfessionID: 0
+    professionLevel: 0
+    ClothName: 
+    ListJobAction: 1a000000
+    occupationType: 5
+    baseWorkValue: 40
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 4
+    ProfessionName: "\u917F\u9152\u5E08"
+    actionUnLock: 0
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 
+    listProfessionPreAbility: 
+    preProfessionID: 0
+    professionLevel: 0
+    ClothName: 
+    ListJobAction: 1300000019000000
+    occupationType: 4
+    baseWorkValue: 40
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 1101
+    ProfessionName: "\u4E66\u751F"
+    actionUnLock: 0
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 
+    listProfessionPreAbility: 
+    preProfessionID: 0
+    professionLevel: 1
+    ClothName: 
+    ListJobAction: 
+    occupationType: 1
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 2101
+    ProfessionName: "\u730E\u4EBA"
+    actionUnLock: 0
+    listProfessionInBuilding: fe010000
+    listProfessionLearnAbility: 35080000
+    listProfessionPreAbility: 
+    preProfessionID: 0
+    professionLevel: 1
+    ClothName: 
+    ListJobAction: 
+    occupationType: 2
+    baseWorkValue: 0
+    workUseitemID: 1101
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 2201
+    ProfessionName: "\u5F13\u7BAD\u624B"
+    actionUnLock: 0
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 36080000
+    listProfessionPreAbility: 35080000
+    preProfessionID: 0
+    professionLevel: 0
+    ClothName: 
+    ListJobAction: 
+    occupationType: 0
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3101
+    ProfessionName: "\u519C\u5DE5"
+    actionUnLock: 5
+    listProfessionInBuilding: f6010000
+    listProfessionLearnAbility: 1f0c0000200c00001d0c00001e0c0000
+    listProfessionPreAbility: 
+    preProfessionID: 0
+    professionLevel: 1
+    ClothName: nm
+    ListJobAction: 050000001b000000
+    occupationType: 3
+    baseWorkValue: 30
+    workUseitemID: 3101
+    listWorkPublicUseitemID:
+    - ID: 809
+      count: 1
+    listWorkPlantID:
+    - ID: 603
+      count: 4
+    isWorkOutBuilding: 0
+  - ProfessionID: 3201
+    ProfessionName: "\u519C\u6C11"
+    actionUnLock: 0
+    listProfessionInBuilding: 810c0000
+    listProfessionLearnAbility: 210c0000820c0000810c0000
+    listProfessionPreAbility: 1d0c00001e0c00001f0c0000
+    preProfessionID: 0
+    professionLevel: 2
+    ClothName: 
+    ListJobAction: 050000001b000000810c0000
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 3101
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3202
+    ProfessionName: "\u9A6F\u517D\u5DE5"
+    actionUnLock: 3101
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 830c0000840c0000850c0000
+    listProfessionPreAbility: 36080000200c0000
+    preProfessionID: 0
+    professionLevel: 2
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3301
+    ProfessionName: "\u8015\u519C"
+    actionUnLock: 3201
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: e60c0000e50c0000e70c0000
+    listProfessionPreAbility: 210c0000810c0000
+    preProfessionID: 3201
+    professionLevel: 3
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3302
+    ProfessionName: "\u80B2\u8349\u519C"
+    actionUnLock: 0
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: e80c0000
+    listProfessionPreAbility: 820c0000
+    preProfessionID: 3201
+    professionLevel: 3
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3303
+    ProfessionName: "\u9972\u517B\u5DE5"
+    actionUnLock: 3202
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: ea0c0000eb0c0000e90c0000
+    listProfessionPreAbility: 830c0000840c0000
+    preProfessionID: 3202
+    professionLevel: 3
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3304
+    ProfessionName: "\u9A6F\u517D\u5E08"
+    actionUnLock: 3203
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: ec0c0000ed0c0000ee0c0000ef0c0000
+    listProfessionPreAbility: 830c0000850c0000
+    preProfessionID: 3202
+    professionLevel: 3
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3401
+    ProfessionName: "\u7A3B\u519C"
+    actionUnLock: 3301
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 4a0d0000490d0000
+    listProfessionPreAbility: e60c0000e50c0000e70c0000
+    preProfessionID: 3301
+    professionLevel: 4
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3402
+    ProfessionName: "\u80B2\u8349\u5E08"
+    actionUnLock: 3302
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 4b0d0000
+    listProfessionPreAbility: e80c0000
+    preProfessionID: 3302
+    professionLevel: 4
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3403
+    ProfessionName: "\u9972\u517B\u5E08"
+    actionUnLock: 3303
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 4c0d00004d0d0000
+    listProfessionPreAbility: e90c0000ea0c0000eb0c0000
+    preProfessionID: 3303
+    professionLevel: 4
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3404
+    ProfessionName: "\u9A6F\u9A6C\u5E08"
+    actionUnLock: 3304
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 4e0d00004f0d0000
+    listProfessionPreAbility: ec0c0000ed0c0000
+    preProfessionID: 3304
+    professionLevel: 4
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3405
+    ProfessionName: "\u9A6F\u517D\u5927\u5E08"
+    actionUnLock: 3305
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 
+    listProfessionPreAbility: ec0c0000ee0c0000
+    preProfessionID: 3304
+    professionLevel: 4
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3406
+    ProfessionName: "\u9A6D\u517D\u5E08"
+    actionUnLock: 3306
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: f00c0000
+    listProfessionPreAbility: ef0c0000
+    preProfessionID: 3304
+    professionLevel: 4
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3501
+    ProfessionName: "\u7267\u519C"
+    actionUnLock: 3401
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 
+    listProfessionPreAbility: 490d00004a0d0000
+    preProfessionID: 3401
+    professionLevel: 5
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3502
+    ProfessionName: "\u836F\u5E08"
+    actionUnLock: 3402
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: ad0d0000
+    listProfessionPreAbility: 4b0d0000
+    preProfessionID: 3402
+    professionLevel: 5
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3503
+    ProfessionName: "\u9972\u517B\u5927\u5E08"
+    actionUnLock: 3403
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: ae0d0000
+    listProfessionPreAbility: 4d0d00004c0d0000
+    preProfessionID: 3403
+    professionLevel: 5
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 3504
+    ProfessionName: "\u9A6F\u9A6C\u5927\u5E08"
+    actionUnLock: 3404
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: b00d0000af0d0000
+    listProfessionPreAbility: 4e0d00004f0d0000
+    preProfessionID: 3404
+    professionLevel: 5
+    ClothName: 
+    ListJobAction: 
+    occupationType: 3
+    baseWorkValue: 0
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 4101
+    ProfessionName: "\u91C7\u96C6\u5DE5"
+    actionUnLock: 0
+    listProfessionInBuilding: 
+    listProfessionLearnAbility: 
+    listProfessionPreAbility: 
+    preProfessionID: 0
+    professionLevel: 0
+    ClothName: 
+    ListJobAction: 09000000
+    occupationType: 3
+    baseWorkValue: 40
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 4201
+    ProfessionName: "\u6728\u5DE5"
+    actionUnLock: 0
+    listProfessionInBuilding: fa010000
+    listProfessionLearnAbility: 
+    listProfessionPreAbility: 
+    preProfessionID: 0
+    professionLevel: 0
+    ClothName: 
+    ListJobAction: 1400000019000000
+    occupationType: 4
+    baseWorkValue: 40
+    workUseitemID: 0
+    listWorkPublicUseitemID: []
+    listWorkPlantID: []
+    isWorkOutBuilding: 0
+  - ProfessionID: 5101
+    ProfessionName: "\u5546\u8D29"
+    actionUnLock: 0
+    listProfessionInBuilding: f8010000
+    listProfessionLearnAbility: 
+    listProfessionPreAbility: 
+    preProfessionID: 0
+    professionLevel: 1
+    ClothName: 
+    ListJobAction: 1f0000000a000000
+    occupationType: 5
+    baseWorkValue: 15
+    workUseitemID: 5101
+    listWorkPublicUseitemID:
+    - ID: 809
+      count: 1
+    - ID: 805
+      count: 1
+    listWorkPlantID: []
+    isWorkOutBuilding: 0

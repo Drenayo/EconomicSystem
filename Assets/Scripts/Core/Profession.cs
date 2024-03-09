@@ -14,7 +14,7 @@ public class Profession
 
     // 岗位基本数据
     [LabelText("岗位职业数据")]
-    public ProfessionData professionData;
+    public ProfessionData_ professionData;
 
     // 基本薪资数据在模板上，实际奖励加成薪资，在实例中
 

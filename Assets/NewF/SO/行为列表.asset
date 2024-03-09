@@ -1,0 +1,915 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9595ee208663e3a46b46e41710b5085f, type: 3}
+  m_Name: "\u884C\u4E3A\u5217\u8868"
+  m_EditorClassIdentifier: 
+  listActionData:
+  - ActionID: 1
+    ActionName: "\u5236\u4F5C\u98DF\u7269"
+    ActionDoType: 3
+    occupationType: 0
+    UseTime: 5
+    UseEnergy: 2
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 0300000004000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: make
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 1
+    makeType: 1
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 2
+    ActionName: "\u5B66\u4E60"
+    ActionDoType: 21
+    occupationType: 0
+    UseTime: 8
+    UseEnergy: 15
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 0400000005000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: think
+      otherUseTime: 1
+      ActionOtherAnimStr: sit
+      ActionOtherRetuenAnimStr: sit
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3
+    ActionName: "\u5403\u996D"
+    ActionDoType: 1
+    occupationType: 0
+    UseTime: 3
+    UseEnergy: 1
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 21300000, guid: c6dcc097e177d46918561819a1179e16, type: 3}
+    actionAnim:
+      ActionAnimStr: eat
+      otherUseTime: 1
+      ActionOtherAnimStr: sit
+      ActionOtherRetuenAnimStr: sit
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 1
+    GetValueGetType: 1
+  - ActionID: 4
+    ActionName: "\u4F11\u606F"
+    ActionDoType: 1
+    occupationType: 0
+    UseTime: 60
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 050000000200000004000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: sleep
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 2
+    GetValueGetType: 2
+  - ActionID: 5
+    ActionName: "\u79CD\u690D"
+    ActionDoType: 19
+    occupationType: 0
+    UseTime: 4
+    UseEnergy: 5
+    useMaxCount: 1
+    isNeedProfessionAction: 1
+    ListChinfoLimits: 03000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: make
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 6
+    ActionName: "\u5BF9\u8BDD"
+    ActionDoType: 17
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 3
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: talk
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 7
+    ActionName: "\u4EA4\u6362"
+    ActionDoType: 6
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 3
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 8
+    ActionName: "\u6218\u6597"
+    ActionDoType: 20
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 6
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: idle
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 9
+    ActionName: "\u91C7\u96C6"
+    ActionDoType: 2
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 2
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: make
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 10
+    ActionName: "\u5546\u4E1A\u4E0A\u67B6"
+    ActionDoType: 31
+    occupationType: 5
+    UseTime: 2
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 1
+    ListChinfoLimits: 03000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: make
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 11
+    ActionName: "\u50A8\u7269"
+    ActionDoType: 24
+    occupationType: 0
+    UseTime: 2
+    UseEnergy: 2
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 0500000004000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: make
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 13
+    ActionName: "\u7761\u89C9"
+    ActionDoType: 1
+    occupationType: 0
+    UseTime: 999
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 050000000200000004000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: sleep
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 2
+    GetValueGetType: 2
+  - ActionID: 14
+    ActionName: "\u52A0\u5165\u5BB6\u65CF"
+    ActionDoType: 22
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 05000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 2
+    GetValueGetType: 2
+  - ActionID: 15
+    ActionName: "\u5BB6\u65CF\u4F1A\u8BAE"
+    ActionDoType: 23
+    occupationType: 0
+    UseTime: 4
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 04000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 2
+    GetValueGetType: 2
+  - ActionID: 16
+    ActionName: "\u62DB\u8058"
+    ActionDoType: 11
+    occupationType: 0
+    UseTime: 1
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 05000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: think
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 2
+    GetValueGetType: 2
+  - ActionID: 17
+    ActionName: "\u5E94\u8058"
+    ActionDoType: 27
+    occupationType: 0
+    UseTime: 2
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: think
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 2
+    GetValueGetType: 2
+  - ActionID: 18
+    ActionName: "\u5DE5\u4F5C"
+    ActionDoType: 18
+    occupationType: 0
+    UseTime: 3
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 03000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: think
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 2
+    GetValueGetType: 2
+  - ActionID: 19
+    ActionName: "\u917F\u9152"
+    ActionDoType: 3
+    occupationType: 0
+    UseTime: 12
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 03000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: make
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 1
+    makeType: 7
+    GetValueValueType: 2
+    GetValueGetType: 2
+  - ActionID: 20
+    ActionName: "\u5236\u6728"
+    ActionDoType: 3
+    occupationType: 0
+    UseTime: 4
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 05000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: make
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 1
+    makeType: 2
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 21
+    ActionName: "\u4EA4\u6613"
+    ActionDoType: 6
+    occupationType: 0
+    UseTime: 1
+    UseEnergy: 0
+    useMaxCount: 4
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: think
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 22
+    ActionName: "\u51FA\u552E"
+    ActionDoType: 9
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 4
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: talk
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 24
+    ActionName: "\u6728\u5236\u54C1\u9884\u5B9A"
+    ActionDoType: 7
+    occupationType: 0
+    UseTime: 3
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: think
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 1
+    makeType: 2
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 25
+    ActionName: "\u9884\u5B9A\u7BA1\u7406"
+    ActionDoType: 12
+    occupationType: 0
+    UseTime: 1
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 05000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: think
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 26
+    ActionName: "\u98DF\u7269\u9884\u5B9A"
+    ActionDoType: 7
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 1
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: think
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 1
+    makeType: 1
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 27
+    ActionName: "\u5951\u7EA6\u8BBE\u5B9A"
+    ActionDoType: 10
+    occupationType: 0
+    UseTime: 3
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 05000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: make
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 28
+    ActionName: "\u5546\u4E1A\u8FDB\u8D27"
+    ActionDoType: 14
+    occupationType: 0
+    UseTime: 3
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 07000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: make
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 29
+    ActionName: "\u6362\u88C5"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 5
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: talk
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 30
+    ActionName: "\u5DE5\u4F5C\u8BBE\u5B9A"
+    ActionDoType: 28
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 05000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 31
+    ActionName: "\u51FA\u8D27\u534F\u8BAE\u7B7E\u8BA2"
+    ActionDoType: 29
+    occupationType: 0
+    UseTime: 1
+    UseEnergy: 0
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 03000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: think
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 32
+    ActionName: "\u51FA\u8D27\u534F\u8BAE\u6295\u9012"
+    ActionDoType: 30
+    occupationType: 0
+    UseTime: 1
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 01000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: talk
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3101
+    ActionName: "\u9A6F\u517D"
+    ActionDoType: 25
+    occupationType: 2
+    UseTime: 0
+    UseEnergy: 5
+    useMaxCount: 1
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3201
+    ActionName: "\u8015\u5730"
+    ActionDoType: 0
+    occupationType: 3
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3202
+    ActionName: "\u9972\u517B"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3203
+    ActionName: "\u5BA0\u7269\u8DDF\u968F"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3301
+    ActionName: "\u6C34\u79CD\u690D"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3302
+    ActionName: "\u8BC6\u8349"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3303
+    ActionName: "\u52A8\u7269\u7E41\u884D"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3304
+    ActionName: "\u9A6F\u9A6C"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3305
+    ActionName: "\u52A8\u7269\u533B\u7597"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3306
+    ActionName: "\u52A8\u7269\u6218\u6597"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3401
+    ActionName: "\u725B\u8015\u5730"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3402
+    ActionName: "\u5236\u836F"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3403
+    ActionName: "\u57F9\u80B2\u7E41\u884D"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 3404
+    ActionName: "\u8BC6\u9A6C"
+    ActionDoType: 0
+    occupationType: 0
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0
+  - ActionID: 1101
+    ActionName: "\u6253\u730E"
+    ActionDoType: 20
+    occupationType: 2
+    UseTime: 0
+    UseEnergy: 0
+    useMaxCount: 0
+    isNeedProfessionAction: 0
+    ListChinfoLimits: 03000000
+    actionIcon: {fileID: 0}
+    actionAnim:
+      ActionAnimStr: 
+      otherUseTime: 0
+      ActionOtherAnimStr: 
+      ActionOtherRetuenAnimStr: 
+      otherAnimPReturnPostionV3: {x: 0, y: 0, z: 0}
+    BookType: 0
+    makeType: 0
+    GetValueValueType: 0
+    GetValueGetType: 0

@@ -1,0 +1,921 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a618c2491a3d6114b8aa20e21fbc2250, type: 3}
+  m_Name: "\u56FE\u9274\u5217\u8868"
+  m_EditorClassIdentifier: 
+  listItemBookData:
+  - bookID: 1001
+    bookName: "\u7D20\u98DF\u56FE\u9274"
+    bookLevel: 0
+    bookIcon: {fileID: 0}
+    finishValueMax: 30
+    bookType: 1
+    makeType: 1
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    getItemID: 101
+    getCount: 1
+    ListSpentItem:
+    - itemID: 11
+      count: 1
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+    - itemID: 13
+      count: 2
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+  - bookID: 1002
+    bookName: "\u8089\u98DF\u56FE\u9274"
+    bookLevel: 0
+    bookIcon: {fileID: 0}
+    finishValueMax: 40
+    bookType: 1
+    makeType: 1
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    getItemID: 102
+    getCount: 1
+    ListSpentItem:
+    - itemID: 12
+      count: 1
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+    - itemID: 13
+      count: 2
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+  - bookID: 1003
+    bookName: "\u9152\u5236\u9020"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 7
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    getItemID: 13
+    getCount: 1
+    ListSpentItem:
+    - itemID: 13
+      count: 3
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+  - bookID: 1004
+    bookName: "\u83DC\u79CD\u5B50\u5236\u9020"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 8
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 1
+      value: 5
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    getItemID: 103
+    getCount: 1
+    ListSpentItem:
+    - itemID: 301
+      count: 1
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+  - bookID: 1005
+    bookName: "\u7CAE\u98DF\u79CD\u5B50\u5236\u9020"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 8
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    getItemID: 103
+    getCount: 1
+    ListSpentItem:
+    - itemID: 302
+      count: 1
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+  - bookID: 1006
+    bookName: "\u6728\u5236\u91C7\u96C6\u5DE5\u5177\u5236\u4F5C"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 2
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    getItemID: 201
+    getCount: 1
+    ListSpentItem:
+    - itemID: 2
+      count: 2
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+  - bookID: 1007
+    bookName: "\u6728\u5236\u79CD\u690D\u5DE5\u5177\u5236\u4F5C"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 2
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    getItemID: 202
+    getCount: 1
+    ListSpentItem:
+    - itemID: 2
+      count: 2
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+  listUseItemBookData:
+  - bookID: 801
+    bookName: "\u7076\u53F0"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 2
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    UseItemID: 801
+    GetCount: 0
+    ListSpentItem:
+    - itemID: 2
+      count: 10
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+    - itemID: 1
+      count: 5
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+  - bookID: 802
+    bookName: "\u684C\u5B50"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 2
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    UseItemID: 802
+    GetCount: 0
+    ListSpentItem:
+    - itemID: 2
+      count: 8
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 0
+      hideCountChange: 0
+  listBuldingBookData:
+  - bookID: 501
+    bookName: "\u623F\u5C4B\u5EFA\u9020\u56FE\u7EB8"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 3
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    BuildingID: 501
+    ListSpentItem: []
+    ContinueMakeBuildingData:
+      buildID: 0
+      buildName: 
+      buildInfo: 
+      preBuildingID: 0
+      buildingLevel: 0
+      buildingType: 0
+      SellType: 0
+      productionType: 0
+      richValue: 0
+      creatMoney: 0
+      BuildingBookID: 0
+      listLevelUpMaterial: []
+      isWorkBuilding: 0
+      buildingOpenTime:
+        hour: 0
+        moment: 0
+      buildingCloseTime:
+        hour: 0
+        moment: 0
+      rewardBuildingWorkExp: 0
+      listBuildingUseitemV2: []
+      listBuildingPlantV2: []
+      ListBuildingProfession: 
+      buildingIcon: {fileID: 0}
+      buildingIconOnWorld: {fileID: 0}
+      OnWorldPrefab: {fileID: 0}
+      tileX: 0
+      tileY: 0
+      listNoInsidebuildV2: []
+      listNoInsidebuildMove: []
+      isNoInside: 0
+      doorInsideGridV2: {x: 0, y: 0}
+      doorMainGridV2: {x: 0, y: 0}
+      mapData_SO: {fileID: 0}
+      insidePrefab: {fileID: 0}
+  listPlantBookData:
+  - bookID: 601
+    bookName: "\u6811\u6728"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 9999
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    PlantLevel: 0
+    itemSeedID: 9999
+    PlantDataID: 601
+    initState: 4
+    GrowPreTime: 8
+    GrowTimes: 1
+    growPrefab:
+    - {fileID: 0}
+    - {fileID: 5238171969635441317, guid: 9e8bda0fd72ac914cbc69b83a811e9ce, type: 3}
+    - {fileID: 0}
+    - {fileID: 2587893995838311773, guid: 8d3841ced8c49d44aa89f4041f7d9daf, type: 3}
+    - {fileID: 0}
+    plantSeason: 0
+    toolItemID: 201
+    transferItemID: 602
+    listGetItem:
+    - itemID: 2
+      count: 0
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 100
+      hideCountChange: 1
+    plantCountToItem: 1
+    randomItemID: 0
+    randomCount: 0
+    hasAnim: 0
+    hasEffect: 0
+  - bookID: 603
+    bookName: "\u65E0\u79CD\u690D"
+    bookLevel: 1
+    bookIcon: {fileID: 21300000, guid: 110d475dd52844c538022863885cdb1f, type: 3}
+    finishValueMax: 9999
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    PlantLevel: 0
+    itemSeedID: -1
+    PlantDataID: 603
+    initState: 1
+    GrowPreTime: 0
+    GrowTimes: 0
+    growPrefab:
+    - {fileID: 7214903036917075506, guid: 24004f79f941d4a4b9d250fced51ece1, type: 3}
+    plantSeason: 0
+    toolItemID: 0
+    transferItemID: 0
+    listGetItem: []
+    plantCountToItem: 0
+    randomItemID: 0
+    randomCount: 0
+    hasAnim: 0
+    hasEffect: 0
+  - bookID: 604
+    bookName: "\u852C\u83DC"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 3101
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    PlantLevel: 1
+    itemSeedID: 301
+    PlantDataID: 604
+    initState: 3
+    GrowPreTime: 30
+    GrowTimes: 1
+    growPrefab:
+    - {fileID: 7214903036917075506, guid: 24004f79f941d4a4b9d250fced51ece1, type: 3}
+    - {fileID: 8623077053230683818, guid: 77ae818007d431a42b051575894845da, type: 3}
+    - {fileID: 774001744558230683, guid: 20daf52dc3f21ff47b29b5f8f8184934, type: 3}
+    - {fileID: 6334182658785845202, guid: dc7fcfdc7fb54c3429d8d32344f78e07, type: 3}
+    - {fileID: 774001744558230683, guid: c7b34d8cd653a90468b1da6ef79bd2ef, type: 3}
+    plantSeason: 1
+    toolItemID: 201
+    transferItemID: 603
+    listGetItem:
+    - itemID: 11
+      count: 2
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 100
+      hideCountChange: 1
+    - itemID: 301
+      count: 1
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 20
+      hideCountChange: 2
+    plantCountToItem: 2
+    randomItemID: 301
+    randomCount: 2
+    hasAnim: 0
+    hasEffect: 0
+  - bookID: 605
+    bookName: "\u7CAE\u98DF\u56FE\u9274"
+    bookLevel: 1
+    bookIcon: {fileID: 21300000, guid: c6dcc097e177d46918561819a1179e16, type: 3}
+    finishValueMax: 100
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 1
+      value: 5
+    chAddValueL3:
+      additionType: 1
+      value: 0
+    chAddValueL4:
+      additionType: 1
+      value: 0
+    chAddValueL5:
+      additionType: 1
+      value: 0
+    PlantLevel: 0
+    itemSeedID: 302
+    PlantDataID: 605
+    initState: 3
+    GrowPreTime: 15
+    GrowTimes: 0
+    growPrefab:
+    - {fileID: 7214903036917075506, guid: 24004f79f941d4a4b9d250fced51ece1, type: 3}
+    - {fileID: 8623077053230683818, guid: 77ae818007d431a42b051575894845da, type: 3}
+    - {fileID: 774001744558230683, guid: 20daf52dc3f21ff47b29b5f8f8184934, type: 3}
+    - {fileID: 6334182658785845202, guid: dc7fcfdc7fb54c3429d8d32344f78e07, type: 3}
+    - {fileID: 774001744558230683, guid: c7b34d8cd653a90468b1da6ef79bd2ef, type: 3}
+    plantSeason: 5
+    toolItemID: 201
+    transferItemID: 603
+    listGetItem:
+    - itemID: 302
+      count: 1
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 20
+      hideCountChange: 2
+    - itemID: 13
+      count: 2
+      priceType: 0
+      priceBetterValueTemp: 0
+      buildingIndex: 
+      makeChIndex: 0
+      hideRandom: 80
+      hideCountChange: 1
+    plantCountToItem: 1
+    randomItemID: 13
+    randomCount: 1
+    hasAnim: 0
+    hasEffect: 0
+  - bookID: 606
+    bookName: "\u6C34\u679C"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+    PlantLevel: 1
+    itemSeedID: 303
+    PlantDataID: 606
+    initState: 3
+    GrowPreTime: 2
+    GrowTimes: 1
+    growPrefab:
+    - {fileID: 7214903036917075506, guid: 24004f79f941d4a4b9d250fced51ece1, type: 3}
+    - {fileID: 8623077053230683818, guid: 77ae818007d431a42b051575894845da, type: 3}
+    - {fileID: 774001744558230683, guid: 20daf52dc3f21ff47b29b5f8f8184934, type: 3}
+    - {fileID: 6334182658785845202, guid: dc7fcfdc7fb54c3429d8d32344f78e07, type: 3}
+    - {fileID: 774001744558230683, guid: c7b34d8cd653a90468b1da6ef79bd2ef, type: 3}
+    plantSeason: 1
+    toolItemID: 201
+    transferItemID: 603
+    listGetItem: []
+    plantCountToItem: 0
+    randomItemID: 0
+    randomCount: 0
+    hasAnim: 0
+    hasEffect: 0
+  listBookData:
+  - bookID: 1001
+    bookName: "\u7D20\u98DF\u56FE\u9274"
+    bookLevel: 0
+    bookIcon: {fileID: 0}
+    finishValueMax: 30
+    bookType: 1
+    makeType: 1
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 1002
+    bookName: "\u8089\u98DF\u56FE\u9274"
+    bookLevel: 0
+    bookIcon: {fileID: 0}
+    finishValueMax: 40
+    bookType: 1
+    makeType: 1
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 1003
+    bookName: "\u9152\u5236\u9020"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 7
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 1004
+    bookName: "\u83DC\u79CD\u5B50\u5236\u9020"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 8
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 1
+      value: 5
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 1005
+    bookName: "\u7CAE\u98DF\u79CD\u5B50\u5236\u9020"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 8
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 1006
+    bookName: "\u6728\u5236\u91C7\u96C6\u5DE5\u5177\u5236\u4F5C"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 2
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 1007
+    bookName: "\u6728\u5236\u79CD\u690D\u5DE5\u5177\u5236\u4F5C"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 1
+    makeType: 2
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 801
+    bookName: "\u7076\u53F0"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 2
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 802
+    bookName: "\u684C\u5B50"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 2
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 501
+    bookName: "\u623F\u5C4B\u5EFA\u9020\u56FE\u7EB8"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 3
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 601
+    bookName: "\u6811\u6728"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 9999
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 603
+    bookName: "\u65E0\u79CD\u690D"
+    bookLevel: 1
+    bookIcon: {fileID: 21300000, guid: 110d475dd52844c538022863885cdb1f, type: 3}
+    finishValueMax: 9999
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 604
+    bookName: "\u852C\u83DC"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 3101
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0
+  - bookID: 605
+    bookName: "\u7CAE\u98DF\u56FE\u9274"
+    bookLevel: 1
+    bookIcon: {fileID: 21300000, guid: c6dcc097e177d46918561819a1179e16, type: 3}
+    finishValueMax: 100
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 1
+      value: 5
+    chAddValueL3:
+      additionType: 1
+      value: 0
+    chAddValueL4:
+      additionType: 1
+      value: 0
+    chAddValueL5:
+      additionType: 1
+      value: 0
+  - bookID: 606
+    bookName: "\u6C34\u679C"
+    bookLevel: 1
+    bookIcon: {fileID: 0}
+    finishValueMax: 100
+    bookType: 4
+    makeType: 0
+    learnAbilityID: 0
+    chAddValueL2:
+      additionType: 0
+      value: 0
+    chAddValueL3:
+      additionType: 0
+      value: 0
+    chAddValueL4:
+      additionType: 0
+      value: 0
+    chAddValueL5:
+      additionType: 0
+      value: 0

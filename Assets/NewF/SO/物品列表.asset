@@ -1,0 +1,337 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90bff719f754bf48bf36e69ca7dc19c, type: 3}
+  m_Name: "\u7269\u54C1\u5217\u8868"
+  m_EditorClassIdentifier: 
+  listItem:
+  - itemID: 1
+    itemName: "\u91D1\u5E01"
+    itemPrice: 1
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 0.01
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 7
+    itemGetType: 0
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: "\u7528\u4E8E\u4EA4\u6613\u7684\u6D41\u901A\u8D27\u5E01"
+  - itemID: 2
+    itemName: "\u6728\u5934"
+    itemPrice: 8
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 0.4
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 2
+    itemGetType: 1
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: 
+  - itemID: 3
+    itemName: "\u77F3\u5934"
+    itemPrice: 8
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 0.8
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 2
+    itemGetType: 1
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: 
+  - itemID: 11
+    itemName: "\u852C\u83DC"
+    itemPrice: 6
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 0.1
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 2
+    itemGetType: 1
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: "\u852C\u83DC"
+  - itemID: 12
+    itemName: "\u8089"
+    itemPrice: 10
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 0.15
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 2
+    itemGetType: 1
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: "\u8089"
+  - itemID: 13
+    itemName: "\u7CAE\u98DF"
+    itemPrice: 8
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 0.1
+    itemIcon: {fileID: 21300000, guid: a94f97806ef1a4a20ad529791fc938a5, type: 3}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 2
+    itemGetType: 1
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: "\u7CAE\u98DF"
+  - itemID: 14
+    itemName: "\u6C34\u679C"
+    itemPrice: 8
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 2
+    itemWeight: 0.2
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 2
+    itemGetType: 1
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: "\u6C34\u679C"
+  - itemID: 101
+    itemName: "\u7D20\u98DF\u98DF\u7269"
+    itemPrice: 12
+    itemMakeTime: 6
+    itemEffect: 80
+    itemLevel: 1
+    itemWeight: 0.5
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 3
+    itemGetType: 2
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: "\u852C\u83DC\u5236\u4F5C\u7684\u98DF\u7269\uFF0C\u589E\u52A020\u70B9\u9965\u997F\u503C"
+  - itemID: 102
+    itemName: "\u8089\u98DF\u98DF\u7269"
+    itemPrice: 16
+    itemMakeTime: 10
+    itemEffect: 50
+    itemLevel: 1
+    itemWeight: 0.5
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 3
+    itemGetType: 2
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: "\u8089\u5236\u4F5C\u7684\u98DF\u7269\uFF0C\u589E\u52A050\u70B9\u9965\u997F\u503C"
+  - itemID: 301
+    itemName: "\u852C\u83DC\u79CD\u5B50"
+    itemPrice: 10
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 0.02
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 1
+    itemGetType: 1
+    timeSeason: 5
+    bookDataID: 604
+    itemInfo: 
+  - itemID: 302
+    itemName: "\u7CAE\u98DF\u79CD\u5B50"
+    itemPrice: 10
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 0.02
+    itemIcon: {fileID: 21300000, guid: 8b9910d91179b4a099ab476320fa5ae7, type: 3}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 1
+    itemGetType: 1
+    timeSeason: 5
+    bookDataID: 605
+    itemInfo: 
+  - itemID: 303
+    itemName: "\u6C34\u679C\u79CD\u5B50"
+    itemPrice: 10
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 2
+    itemWeight: 0.02
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 1
+    itemGetType: 1
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: 
+  - itemID: 201
+    itemName: "\u91C7\u96C6\u5DE5\u5177"
+    itemPrice: 20
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 2
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 6
+    itemGetType: 2
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: 
+  - itemID: 202
+    itemName: "\u79CD\u690D\u5DE5\u5177"
+    itemPrice: 20
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 2
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 5
+    itemGetType: 2
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: 
+  - itemID: 203
+    itemName: "\u8FDC\u7A0B\u6B66\u5668"
+    itemPrice: 25
+    itemMakeTime: 0
+    itemEffect: 0
+    itemLevel: 1
+    itemWeight: 3
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 5
+    itemGetType: 0
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: 
+  - itemID: 103
+    itemName: "\u9152"
+    itemPrice: 20
+    itemMakeTime: 2
+    itemEffect: 30
+    itemLevel: 1
+    itemWeight: 0.4
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 3
+    itemGetType: 2
+    timeSeason: 0
+    bookDataID: 1003
+    itemInfo: 
+  - itemID: 1001
+    itemName: "\u300A\u7D20\u98DF\u70F9\u996A\u65B9\u6CD5\u300B"
+    itemPrice: 40
+    itemMakeTime: 0
+    itemEffect: 20
+    itemLevel: 1
+    itemWeight: 0.05
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 4
+    itemGetType: 4
+    timeSeason: 0
+    bookDataID: 1001
+    itemInfo: "\u5B66\u4E60\u5236\u4F5C\u7D20\u98DF\u7684\u65B9\u6CD5"
+  - itemID: 1002
+    itemName: "\u300A\u8089\u98DF\u70F9\u996A\u65B9\u6CD5\u300B"
+    itemPrice: 50
+    itemMakeTime: 0
+    itemEffect: 25
+    itemLevel: 1
+    itemWeight: 0.05
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 4
+    itemGetType: 4
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: 
+  - itemID: 1003
+    itemName: "\u300A\u9152\u5236\u4F5C\u65B9\u6CD5\u300B"
+    itemPrice: 60
+    itemMakeTime: 0
+    itemEffect: 10
+    itemLevel: 1
+    itemWeight: 0.05
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 4
+    itemGetType: 4
+    timeSeason: 0
+    bookDataID: 1003
+    itemInfo: 
+  - itemID: 3101
+    itemName: "\u300A\u7CAE\u98DF\u79CD\u690D\u65B9\u6CD5\u300B"
+    itemPrice: 60
+    itemMakeTime: 0
+    itemEffect: 35
+    itemLevel: 1
+    itemWeight: 0.05
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 4
+    itemGetType: 0
+    timeSeason: 0
+    bookDataID: 605
+    itemInfo: "\u5B66\u4E60\u7CAE\u98DF\u79CD\u690D"
+  - itemID: 1005
+    itemName: "\u300A\u6728\u5236\u5DE5\u5177\u5236\u4F5C\u65B9\u6CD5\u300B"
+    itemPrice: 60
+    itemMakeTime: 0
+    itemEffect: 10
+    itemLevel: 1
+    itemWeight: 0.05
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 4
+    itemGetType: 0
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: 
+  - itemID: 3102
+    itemName: "\u300A\u852C\u83DC\u79CD\u690D\u65B9\u6CD5\u300B"
+    itemPrice: 60
+    itemMakeTime: 0
+    itemEffect: 30
+    itemLevel: 1
+    itemWeight: 0.05
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 4
+    itemGetType: 0
+    timeSeason: 0
+    bookDataID: 604
+    itemInfo: "\u5728\u7530\u4E2D\u79CD\u51FA\u852C\u83DC"
+  - itemID: 1004
+    itemName: "\u300A\u8BD7\u7ECF\u300B"
+    itemPrice: 60
+    itemMakeTime: 0
+    itemEffect: 10
+    itemLevel: 1
+    itemWeight: 0.05
+    itemIcon: {fileID: 0}
+    itemIconOnWorld: {fileID: 0}
+    itemType: 4
+    itemGetType: 0
+    timeSeason: 0
+    bookDataID: 0
+    itemInfo: 
