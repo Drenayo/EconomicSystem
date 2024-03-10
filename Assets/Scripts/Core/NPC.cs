@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour,IEconomicUnit,INPC
+public class NPC : MonoBehaviour
 {
     public int id;
 
@@ -22,7 +22,7 @@ public class NPC : MonoBehaviour,IEconomicUnit,INPC
     /// <summary>
     /// NPC工作单位
     /// </summary>
-    public Building building;
+    public BuildingData building;
 
     [LabelText("NPC学会的技能")]
     public List<ProductionRecipeData> acquiredGraph;
@@ -35,22 +35,22 @@ public class NPC : MonoBehaviour,IEconomicUnit,INPC
     /// </summary>
     private void FindJob()
     {
-        foreach (var item in EconomicManager.Instance.GetBuildingList())
-        {
-            // 查看建筑是否还在招工
-            Building buildingTemp = item as Building;
-            if (buildingTemp.isRecruiting && buildingTemp.JoinBuilding(this))
-            {
-                // 加入
-                building = buildingTemp;
-            }
-        }
+        //foreach (var item in EconomicManager.Instance.GetBuildingList())
+        //{
+        //    // 查看建筑是否还在招工
+        //    Building buildingTemp = item as Building;
+        //    if (buildingTemp.isRecruiting && buildingTemp.JoinBuilding(this))
+        //    {
+        //        // 加入
+        //        building = buildingTemp;
+        //    }
+        //}
     }
 
     public void Loop()
     {
-        if (!building)
-            FindJob();
+        //if (!building)
+        //    FindJob();
         // 有工作就看看有没有更好的工作（考虑NPC的技能体系，某个领域呆的越久的技能值越高，防止NPC频繁跳槽，啥都能干）
 
         // 吃饭，下班（消费：消费在一天的循环中考虑多次消费）（考虑NPC的喜好，家庭住址（只找附近的店铺））

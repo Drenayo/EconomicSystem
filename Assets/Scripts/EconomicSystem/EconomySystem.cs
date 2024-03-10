@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace EconomicSystem
@@ -11,57 +13,74 @@ namespace EconomicSystem
     public class EconomySystem
     {
         private IEconomicManager economicManager;
-
-        #region 公共方法
-        public EconomySystem(IEconomicManager economicManager) 
+        private static EconomySystem instance;
+        private EconomySystem(IEconomicManager economicManager)
         {
             this.economicManager = economicManager;
         }
+        public static EconomySystem GetInstance(IEconomicManager economicManager)
+        {
+            if (instance == null)
+            {
+                instance = new EconomySystem(economicManager);
+            }
+            return instance;
+        }
+        public static EconomySystem GetInstance()
+        {
+            return instance;
+        }
 
-        ///// <summary>
-        ///// 启动经济系统
-        ///// </summary>
-        ///// <param name="economicManager">经济系统数据接口</param>
-        //public void StartEconomySystem()
-        //{
-            
-        //}
+        #region 公共方法
+
 
         /// <summary>
         /// 经济系统主循环
         /// </summary>
         public void EconomySystemLoop()
         {
-            // 经济实体循环
-            InvokeEntityLoop();
-
-            // 调整资源价格
-            AdjustResPrice();
-        }
-        #endregion
-
-
-        #region 局部方法
-        /// <summary>
-        /// 调用经济实体循环
-        /// </summary>
-        private void InvokeEntityLoop()
-        {
-            foreach (var item in economicManager.GetAllEconomicEntity())
-                item.Loop();
+            AdjustItemPrice();
+            EnsureBasicSupply();
         }
 
         /// <summary>
-        /// 调整资源价格
+        /// 单独调用：调整物品价格
         /// </summary>
-        private void AdjustResPrice()
+        private void AdjustItemPrice()
         {
-            foreach (var item in economicManager.GetResourcesDataList())
+            foreach (var item in economicManager.GetItemDataList())
             {
-                int resID = item.GetID();
-                item.SetPrice(AdjustPriceBasedOnSupplyDemand(item,economicManager.GetMarketDemand(resID),economicManager.GetMarketSupply(resID)));
+                if (item.itemType != ItemType.coin)
+                {
+                    float adjust = AdjustPriceBasedOnSupplyDemand(item.itemPrice, item.demand, item.supply, item.quantity, item.priceElasticity);
+                    if (EconomySetting.Instance.enableSmoothFluctuations)
+                    {
+                        // 调用平滑函数
+                        item._price = adjust;
+                    }
+                    else
+                    {
+                        item._price = adjust;
+                    }
+
+
+
+                    // 如果调整价格低于设定集最低值，则直接设置为设定值
+                    if (item._price < item.lowestPrice)
+                        item._price = item.lowestPrice;
+                }
             }
         }
+        
+        /// <summary>
+        /// 单独调用：基础供给保障（未完成）
+        /// </summary>
+        public void EnsureBasicSupply()
+        {
+
+        }
+
+
         #endregion
 
         #region 调整策略
@@ -71,35 +90,60 @@ namespace EconomicSystem
         /// <param name="resource">原始价格</param>
         /// <param name="quantityDemanded">需求量</param>
         /// <param name="supplyQuantity">供应量</param>
-        private float AdjustPriceBasedOnSupplyDemand(IResourceData resourceData, float quantityDemanded, float supplyQuantity)
+        private float AdjustPriceBasedOnSupplyDemand(float origPrice, int demand, int supply, int quantity,float elasticity)
         {
-            float adjustedPrice = resourceData.GetCurrPrice();
-                                                 
-            // 设置供需比的阈值，低于这个阈值不进行价格调整
-            float imbalanceThreshold = 0.2f;
+            //Debug.Log($"价格调整:{origPrice}  {demand}  {supply}  {quantity}");
 
-            // 如果需求大于供给，需要减去市场库存
-            if (quantityDemanded > supplyQuantity)
+            float adjustedPrice = origPrice;
+            float imbalanceThreshold = EconomySetting.Instance.imbalanceThreshold;
+            
+            if (demand == supply)
+                return adjustedPrice;
+
+            // 如果需求大于供给，需要减去总库存
+            if (demand > supply && EconomySetting.Instance.calculateTotal)
             {
-                if (economicManager.GetMarketTotalQuantity(resourceData.GetID()) - quantityDemanded >= 0)
+                if (quantity - demand >= 0)
                     return adjustedPrice;
             }
 
             // 计算供需失衡比例
-            float imbalanceRatio = (quantityDemanded - supplyQuantity) / Mathf.Max(quantityDemanded, supplyQuantity);
-
+            float imbalanceRatio = (float)(demand - supply) / (float)Mathf.Max(demand, supply);
+            
             // 只有在供需比高于阈值时才进行价格调整
             if (MathF.Abs(imbalanceRatio) > imbalanceThreshold)
             {
-                // 根据供需失衡比例来影响涨跌的比例
-                adjustedPrice += (adjustedPrice * imbalanceRatio / 4); // 上涨或下降的比例可以根据实际需求进行调整
+                if (EconomySetting.Instance.calculatePriceElasticity)
+                    adjustedPrice += (adjustedPrice * imbalanceRatio * elasticity);
+                else
+                    adjustedPrice += (adjustedPrice * imbalanceRatio);
             }
 
-            // 如果供需平衡或低于阈值，价格不变
-            Debug.Log(EconomicManager.Instance.GetResourceDataByID(resourceData.GetID()).resName + $"的需求量:{quantityDemanded} 供给量:{supplyQuantity} 调整价格:{adjustedPrice}");
+            //Debug.Log($"计算后:{adjustedPrice}  {imbalanceRatio}  {imbalanceThreshold}  {adjustedPrice * imbalanceRatio}");
 
             return adjustedPrice;
         }
+
+
+        private void GenerateBuildingStrategy()
+        {
+            // 拿到NPC数量，计算所需食物，
+            // 判断食物是否充足，不足就生成对应建筑
+            // 同时还要判断生成粮食所需消耗是否充足
+            // 不够就继续生成对应建筑
+            // 重复此步骤 
+        }
+
+        // 上次调整的价格
+        private float lastAdjustedPrice;
+        // 调整次数
+        private float adjustmentCount;
+
+        // 平滑价格波动
+        //private float SmoothPriceChanges(float adjustedPrice)
+        //{
+            
+        //}
 
         #endregion
     }

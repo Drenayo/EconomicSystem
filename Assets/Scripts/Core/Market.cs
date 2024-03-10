@@ -30,7 +30,7 @@ public class Market : SerializedMonoBehaviour
     [LabelText("建筑列表")]
     [DictionaryDrawerSettings()]
     [ShowInInspector]
-    public Dictionary<int, List<Building>> dicBuildings = new Dictionary<int, List<Building>>();
+    public Dictionary<int, List<BuildingData>> dicBuildings = new Dictionary<int, List<BuildingData>>();
 
     /// <summary>
     /// 从市场购买资源
@@ -38,26 +38,26 @@ public class Market : SerializedMonoBehaviour
     /// <returns>返回总价，0为无货源</returns>
     public float BuyResources(int resID,ref int buyResCount)
     {
-        if (dicMarketStock.ContainsKey(resID))
-        {
-            List<Building> buildings = new List<Building>();
-            int index = 0;
-            float price = 0;
-            // 遍历建筑列表
-            if (dicBuildings.TryGetValue(resID, out buildings) && buildings.Any())
-                do 
-                {
-                    int buyResCountTemp = buyResCount;
-                    // 根据建筑列表，购买建筑的资源
-                    price += buildings[index++].SellResources(resID, ref buyResCount);
-                    // 同时维护市场总库存量（减去已经购买的资源（购买的资源存入建筑原材料库，不纳入市场总库存））
-                    dicMarketStock[resID].resCount -= buyResCountTemp - buyResCount;
-                    if(dicMarketStock[resID].resCount <= 0)
-                        dicMarketStock.Remove(resID);
-                }
-                while (buyResCount > 0);
-            return price;
-        }
+        //if (dicMarketStock.ContainsKey(resID))
+        //{
+        //    List<BuildingData> buildings = new List<BuildingData>();
+        //    int index = 0;
+        //    float price = 0;
+        //    // 遍历建筑列表
+        //    if (dicBuildings.TryGetValue(resID, out buildings) && buildings.Any())
+        //        do 
+        //        {
+        //            int buyResCountTemp = buyResCount;
+        //            // 根据建筑列表，购买建筑的资源
+        //            price += buildings[index++].SellResources(resID, ref buyResCount);
+        //            // 同时维护市场总库存量（减去已经购买的资源（购买的资源存入建筑原材料库，不纳入市场总库存））
+        //            dicMarketStock[resID].resCount -= buyResCountTemp - buyResCount;
+        //            if(dicMarketStock[resID].resCount <= 0)
+        //                dicMarketStock.Remove(resID);
+        //        }
+        //        while (buyResCount > 0);
+        //    return price;
+        //}
         return 0;
     }
 
@@ -66,27 +66,27 @@ public class Market : SerializedMonoBehaviour
     /// </summary>
     public void PushResources(int resID, int resCount, int buildingID)
     {
-        // 维护市场资源列表
-        if (dicMarketStock.ContainsKey(resID))
-        {
-            ResourceUnit unit = dicMarketStock[resID];
-            unit.resCount += resCount;
-        }
-        else
-            dicMarketStock.Add(resID, new ResourceUnit(EconomicManager.Instance.GetResourceDataByID(resID), resCount));
+        //// 维护市场资源列表
+        //if (dicMarketStock.ContainsKey(resID))
+        //{
+        //    ResourceUnit unit = dicMarketStock[resID];
+        //    unit.resCount += resCount;
+        //}
+        //else
+        //    dicMarketStock.Add(resID, new ResourceUnit(EconomicManager.Instance.GetResourceDataByID(resID), resCount));
 
-        // 维护建筑列表
-        if (dicBuildings.ContainsKey(resID))
-        {
-            // 查看建筑列表有没有这次的建筑，如果有就不加了
-            if (!dicBuildings[resID].Contains(EconomicManager.Instance.GetBuildingByID(buildingID)))
-                dicBuildings[resID].Add(EconomicManager.Instance.GetBuildingByID(buildingID));
-        }
-        else
-        {
-            dicBuildings.Add(resID, new List<Building>());
-            dicBuildings[resID].Add(EconomicManager.Instance.GetBuildingByID(buildingID));
-        }
+        //// 维护建筑列表
+        //if (dicBuildings.ContainsKey(resID))
+        //{
+        //    // 查看建筑列表有没有这次的建筑，如果有就不加了
+        //    if (!dicBuildings[resID].Contains(EconomicManager.Instance.GetBuildingByID(buildingID)))
+        //        dicBuildings[resID].Add(EconomicManager.Instance.GetBuildingByID(buildingID));
+        //}
+        //else
+        //{
+        //    dicBuildings.Add(resID, new List<BuildingData>());
+        //    dicBuildings[resID].Add(EconomicManager.Instance.GetBuildingByID(buildingID));
+        //}
 
     }
 

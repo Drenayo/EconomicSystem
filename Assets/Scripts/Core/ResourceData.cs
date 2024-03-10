@@ -8,7 +8,7 @@ using UnityEngine;
 /// 资源类
 /// </summary>
 [CreateAssetMenu(menuName = "资源数据", fileName = "新资源")]
-public class ResourceData : ScriptableObject, IResourceData
+public class ResourceData : ScriptableObject
 {
     // 资源ID
     public int id;

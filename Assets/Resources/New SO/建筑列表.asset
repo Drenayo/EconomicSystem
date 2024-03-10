@@ -1,0 +1,436 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97572e2fb5f556941a09828c47ec6448, type: 3}
+  m_Name: "\u5EFA\u7B51\u5217\u8868"
+  m_EditorClassIdentifier: 
+  listBuildingData:
+  - buildID: 503
+    buildName: "\u6811\u6797"
+    buildInfo: "\u6811\u6797"
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 4
+    SellType: 0
+    productionType: 0
+    richValue: 0
+    creatMoney: 0
+    BuildingBookID: 503
+    isWorkBuilding: 0
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: 
+    buildingIcon: {fileID: 21300000, guid: 4590cd3fefdd74b22ae749a122189ece, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 4590cd3fefdd74b22ae749a122189ece, type: 3}
+    OnWorldPrefab: {fileID: 9038622479437560731, guid: 929555317082c7342971c19d9d6901e9, type: 3}
+    tileX: 1
+    tileY: 1
+    listNoInsidebuildMove: []
+    isNoInside: 0
+    doorInsideGridV2: {x: 19, y: 1}
+    doorMainGridV2: {x: -2, y: -4}
+    mapData_SO: {fileID: 11400000, guid: c47bbcd2b36fc3545b31865bbce4e162, type: 2}
+    insidePrefab: {fileID: 3082041694039437949, guid: fa3e84cb4e3f77b498bbb28edbf6ce4e, type: 3}
+  - buildID: 501
+    buildName: "\u623F\u5C4B"
+    buildInfo: "\u4EBA\u7269\u4F4F\u5B85"
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 1
+    SellType: 0
+    productionType: 0
+    richValue: 1000
+    creatMoney: 0
+    BuildingBookID: 501
+    isWorkBuilding: 0
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: 
+    buildingIcon: {fileID: 21300000, guid: 262dff601ea0d42aeb42d82c81d08fd7, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 7b1af47446726a2449c41b7575c979d1, type: 3}
+    OnWorldPrefab: {fileID: 4449042193365994943, guid: 369c97dcf54825a428f61458ad043e05, type: 3}
+    tileX: 6
+    tileY: 4
+    listNoInsidebuildMove: []
+    isNoInside: 0
+    doorInsideGridV2: {x: 8, y: 2}
+    doorMainGridV2: {x: 4, y: -1}
+    mapData_SO: {fileID: 11400000, guid: d8a7eee619b3f804c8631c9336de0336, type: 2}
+    insidePrefab: {fileID: 6919963971081496182, guid: 56b5d1541c808ec41a6b1c8cf6cfc474, type: 3}
+  - buildID: 508
+    buildName: "\u53CC\u95F4\u623F\u5C4B"
+    buildInfo: "\u4EBA\u7269\u4F4F\u5B85"
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 1
+    SellType: 0
+    productionType: 0
+    richValue: 1500
+    creatMoney: 0
+    BuildingBookID: 508
+    isWorkBuilding: 0
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: 
+    buildingIcon: {fileID: 21300000, guid: 262dff601ea0d42aeb42d82c81d08fd7, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 7b1af47446726a2449c41b7575c979d1, type: 3}
+    OnWorldPrefab: {fileID: 4449042193365994943, guid: 369c97dcf54825a428f61458ad043e05, type: 3}
+    tileX: 6
+    tileY: 4
+    listNoInsidebuildMove: []
+    isNoInside: 0
+    doorInsideGridV2: {x: -1, y: -7}
+    doorMainGridV2: {x: 3, y: 0}
+    mapData_SO: {fileID: 11400000, guid: 7627b66bf57cda64bb404e2a43d652ba, type: 2}
+    insidePrefab: {fileID: 6919963971081496182, guid: 8c10e8a39d1058a4f886dc7451c168b8, type: 3}
+  - buildID: 509
+    buildName: "\u4E09\u95F4\u623F\u5C4B"
+    buildInfo: "\u4EBA\u7269\u4F4F\u5B85"
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 1
+    SellType: 0
+    productionType: 0
+    richValue: 2500
+    creatMoney: 0
+    BuildingBookID: 509
+    isWorkBuilding: 0
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: 
+    buildingIcon: {fileID: 21300000, guid: 262dff601ea0d42aeb42d82c81d08fd7, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 7b1af47446726a2449c41b7575c979d1, type: 3}
+    OnWorldPrefab: {fileID: 4449042193365994943, guid: 369c97dcf54825a428f61458ad043e05, type: 3}
+    tileX: 6
+    tileY: 4
+    listNoInsidebuildMove: []
+    isNoInside: 0
+    doorInsideGridV2: {x: -1, y: -9}
+    doorMainGridV2: {x: 3, y: 0}
+    mapData_SO: {fileID: 11400000, guid: 5147a1ef32144ef43a83985e182bbb25, type: 2}
+    insidePrefab: {fileID: 6919963971081496182, guid: 2ad9d450d90a47a4e89b0e0494527a68, type: 3}
+  - buildID: 502
+    buildName: "\u519C\u7530"
+    buildInfo: 
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 4
+    SellType: 0
+    productionType: 2
+    richValue: 2000
+    creatMoney: 0
+    BuildingBookID: 502
+    isWorkBuilding: 1
+    rewardBuildingWorkExp: 20
+    ListBuildingProfession: 1d0c0000
+    buildingIcon: {fileID: 21300000, guid: 5f5715a8552d14b8d9015f3b9dfb3942, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 5f5715a8552d14b8d9015f3b9dfb3942, type: 3}
+    OnWorldPrefab: {fileID: 3562958972616610515, guid: d306877b08afc8a49821083e4f51b2a0, type: 3}
+    tileX: 13
+    tileY: 12
+    listNoInsidebuildMove:
+    - {x: 0, y: 6}
+    - {x: 0, y: 7}
+    - {x: 1, y: 1}
+    - {x: 1, y: 2}
+    - {x: 1, y: 3}
+    - {x: 1, y: 4}
+    - {x: 1, y: 5}
+    - {x: 1, y: 6}
+    - {x: 1, y: 7}
+    - {x: 1, y: 8}
+    - {x: 1, y: 9}
+    - {x: 1, y: 10}
+    - {x: 2, y: 1}
+    - {x: 2, y: 2}
+    - {x: 2, y: 3}
+    - {x: 2, y: 4}
+    - {x: 2, y: 5}
+    - {x: 2, y: 6}
+    - {x: 2, y: 7}
+    - {x: 2, y: 8}
+    - {x: 2, y: 9}
+    - {x: 2, y: 10}
+    - {x: 3, y: 1}
+    - {x: 3, y: 2}
+    - {x: 3, y: 3}
+    - {x: 3, y: 4}
+    - {x: 3, y: 5}
+    - {x: 3, y: 6}
+    - {x: 3, y: 7}
+    - {x: 3, y: 8}
+    - {x: 3, y: 9}
+    - {x: 3, y: 10}
+    - {x: 4, y: 1}
+    - {x: 4, y: 2}
+    - {x: 4, y: 3}
+    - {x: 4, y: 4}
+    - {x: 4, y: 5}
+    - {x: 4, y: 6}
+    - {x: 4, y: 7}
+    - {x: 4, y: 8}
+    - {x: 4, y: 9}
+    - {x: 4, y: 10}
+    - {x: 5, y: 1}
+    - {x: 5, y: 2}
+    - {x: 5, y: 3}
+    - {x: 5, y: 4}
+    - {x: 5, y: 5}
+    - {x: 5, y: 6}
+    - {x: 5, y: 7}
+    - {x: 5, y: 8}
+    - {x: 5, y: 9}
+    - {x: 5, y: 10}
+    - {x: 6, y: 1}
+    - {x: 6, y: 2}
+    - {x: 6, y: 3}
+    - {x: 6, y: 4}
+    - {x: 6, y: 5}
+    - {x: 6, y: 6}
+    - {x: 6, y: 7}
+    - {x: 6, y: 8}
+    - {x: 6, y: 9}
+    - {x: 6, y: 10}
+    - {x: 7, y: 1}
+    - {x: 7, y: 2}
+    - {x: 7, y: 3}
+    - {x: 7, y: 4}
+    - {x: 7, y: 5}
+    - {x: 7, y: 6}
+    - {x: 7, y: 7}
+    - {x: 7, y: 8}
+    - {x: 7, y: 9}
+    - {x: 7, y: 10}
+    - {x: 8, y: 1}
+    - {x: 8, y: 2}
+    - {x: 8, y: 3}
+    - {x: 8, y: 4}
+    - {x: 8, y: 5}
+    - {x: 8, y: 6}
+    - {x: 8, y: 7}
+    - {x: 8, y: 8}
+    - {x: 8, y: 9}
+    - {x: 8, y: 10}
+    - {x: 9, y: 1}
+    - {x: 9, y: 2}
+    - {x: 9, y: 3}
+    - {x: 9, y: 4}
+    - {x: 9, y: 5}
+    - {x: 9, y: 6}
+    - {x: 9, y: 7}
+    - {x: 9, y: 8}
+    - {x: 9, y: 9}
+    - {x: 9, y: 10}
+    - {x: 10, y: 1}
+    - {x: 10, y: 2}
+    - {x: 10, y: 3}
+    - {x: 10, y: 4}
+    - {x: 10, y: 5}
+    - {x: 10, y: 6}
+    - {x: 10, y: 7}
+    - {x: 10, y: 8}
+    - {x: 10, y: 9}
+    - {x: 10, y: 10}
+    - {x: 11, y: 1}
+    - {x: 11, y: 2}
+    - {x: 11, y: 3}
+    - {x: 11, y: 4}
+    - {x: 11, y: 5}
+    - {x: 11, y: 6}
+    - {x: 11, y: 7}
+    - {x: 11, y: 8}
+    - {x: 11, y: 9}
+    - {x: 11, y: 10}
+    - {x: 12, y: 6}
+    - {x: 12, y: 7}
+    isNoInside: 1
+    doorInsideGridV2: {x: 0, y: 0}
+    doorMainGridV2: {x: 0, y: 0}
+    mapData_SO: {fileID: 0}
+    insidePrefab: {fileID: 0}
+  - buildID: 3201
+    buildName: "\u826F\u7530"
+    buildInfo: "\u4EBA\u7269\u4F4F\u5B85"
+    preBuildingID: 502
+    buildingLevel: 2
+    buildingType: 4
+    SellType: 0
+    productionType: 2
+    richValue: 3000
+    creatMoney: 0
+    BuildingBookID: 3201
+    isWorkBuilding: 1
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: 810c0000
+    buildingIcon: {fileID: 21300000, guid: 262dff601ea0d42aeb42d82c81d08fd7, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 7b1af47446726a2449c41b7575c979d1, type: 3}
+    OnWorldPrefab: {fileID: 4449042193365994943, guid: 369c97dcf54825a428f61458ad043e05, type: 3}
+    tileX: 6
+    tileY: 4
+    listNoInsidebuildMove: []
+    isNoInside: 0
+    doorInsideGridV2: {x: -1, y: -9}
+    doorMainGridV2: {x: 3, y: 0}
+    mapData_SO: {fileID: 11400000, guid: 5147a1ef32144ef43a83985e182bbb25, type: 2}
+    insidePrefab: {fileID: 6919963971081496182, guid: 2ad9d450d90a47a4e89b0e0494527a68, type: 3}
+  - buildID: 504
+    buildName: "\u5546\u94FA"
+    buildInfo: "\u5546\u5E97"
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 6
+    SellType: 1
+    productionType: 0
+    richValue: 2000
+    creatMoney: 0
+    BuildingBookID: 504
+    isWorkBuilding: 1
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: ed130000
+    buildingIcon: {fileID: 21300000, guid: 2f1c29c6416e046c1803e001a27df17d, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 2f1c29c6416e046c1803e001a27df17d, type: 3}
+    OnWorldPrefab: {fileID: 3562958972616610515, guid: a6b9c640f6ec7ca4dac8073740d335bf, type: 3}
+    tileX: 8
+    tileY: 6
+    listNoInsidebuildMove:
+    - {x: 0, y: 2}
+    - {x: 0, y: 3}
+    - {x: 0, y: 4}
+    - {x: 0, y: 5}
+    - {x: 1, y: 2}
+    - {x: 1, y: 3}
+    - {x: 1, y: 4}
+    - {x: 1, y: 5}
+    - {x: 2, y: 0}
+    - {x: 2, y: 1}
+    - {x: 2, y: 2}
+    - {x: 2, y: 3}
+    - {x: 2, y: 4}
+    - {x: 2, y: 5}
+    - {x: 3, y: 0}
+    - {x: 3, y: 1}
+    - {x: 3, y: 2}
+    - {x: 3, y: 3}
+    - {x: 3, y: 4}
+    - {x: 3, y: 5}
+    - {x: 4, y: 0}
+    - {x: 4, y: 1}
+    - {x: 4, y: 2}
+    - {x: 4, y: 3}
+    - {x: 4, y: 4}
+    - {x: 4, y: 5}
+    - {x: 5, y: 4}
+    - {x: 5, y: 5}
+    - {x: 6, y: 4}
+    - {x: 6, y: 5}
+    - {x: 7, y: 4}
+    - {x: 7, y: 5}
+    isNoInside: 1
+    doorInsideGridV2: {x: 0, y: 0}
+    doorMainGridV2: {x: 0, y: 0}
+    mapData_SO: {fileID: 0}
+    insidePrefab: {fileID: 0}
+  - buildID: 505
+    buildName: "\u917F\u9152\u574A"
+    buildInfo: 
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 4
+    SellType: 0
+    productionType: 4
+    richValue: 4500
+    creatMoney: 0
+    BuildingBookID: 505
+    isWorkBuilding: 1
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: 04000000
+    buildingIcon: {fileID: 21300000, guid: 5f5715a8552d14b8d9015f3b9dfb3942, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 5f5715a8552d14b8d9015f3b9dfb3942, type: 3}
+    OnWorldPrefab: {fileID: 1818209606866261072, guid: bf977b062a97b2045a32e93f8c225383, type: 3}
+    tileX: 17
+    tileY: 9
+    listNoInsidebuildMove: []
+    isNoInside: 0
+    doorInsideGridV2: {x: -1, y: -13}
+    doorMainGridV2: {x: 10, y: 0}
+    mapData_SO: {fileID: 11400000, guid: f01c7001e612e0e4fb815c186cd35c6f, type: 2}
+    insidePrefab: {fileID: 8946269726975075626, guid: 3696ceca4c6a3974589db836195c7464, type: 3}
+  - buildID: 506
+    buildName: "\u6728\u574A"
+    buildInfo: 
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 5
+    SellType: 0
+    productionType: 0
+    richValue: 3500
+    creatMoney: 0
+    BuildingBookID: 506
+    isWorkBuilding: 1
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: 0510000069100000
+    buildingIcon: {fileID: 21300000, guid: 5f5715a8552d14b8d9015f3b9dfb3942, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 5f5715a8552d14b8d9015f3b9dfb3942, type: 3}
+    OnWorldPrefab: {fileID: 1818209606866261072, guid: 085c814c7bceb5245b7a7438b0dd165d, type: 3}
+    tileX: 14
+    tileY: 12
+    listNoInsidebuildMove: []
+    isNoInside: 0
+    doorInsideGridV2: {x: -1, y: -12}
+    doorMainGridV2: {x: 10, y: -1}
+    mapData_SO: {fileID: 11400000, guid: d1c62c30af6cd7d42924e3a23f5b8ea6, type: 2}
+    insidePrefab: {fileID: 182903852069059927, guid: 2749b73d4635a4647a10c314b7694593, type: 3}
+  - buildID: 507
+    buildName: "\u9910\u9986"
+    buildInfo: 
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 6
+    SellType: 0
+    productionType: 0
+    richValue: 5000
+    creatMoney: 0
+    BuildingBookID: 507
+    isWorkBuilding: 1
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: 0200000007000000
+    buildingIcon: {fileID: 21300000, guid: 5f5715a8552d14b8d9015f3b9dfb3942, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 5f5715a8552d14b8d9015f3b9dfb3942, type: 3}
+    OnWorldPrefab: {fileID: 1818209606866261072, guid: 0c00dd0a8eb83874d8ba66d14ed33108, type: 3}
+    tileX: 17
+    tileY: 11
+    listNoInsidebuildMove: []
+    isNoInside: 0
+    doorInsideGridV2: {x: 0, y: -9}
+    doorMainGridV2: {x: 7, y: -1}
+    mapData_SO: {fileID: 11400000, guid: 954383b05522f7e49bca4eb7d4238eb3, type: 2}
+    insidePrefab: {fileID: 1564764578017680195, guid: 0945f0c0da4cf4543832ea7c75626d34, type: 3}
+  - buildID: 510
+    buildName: "\u730E\u4EBA\u5C0F\u5C4B"
+    buildInfo: "\u4EBA\u7269\u4F4F\u5B85"
+    preBuildingID: 0
+    buildingLevel: 1
+    buildingType: 3
+    SellType: 0
+    productionType: 2
+    richValue: 1500
+    creatMoney: 0
+    BuildingBookID: 510
+    isWorkBuilding: 1
+    rewardBuildingWorkExp: 0
+    ListBuildingProfession: 35080000
+    buildingIcon: {fileID: 21300000, guid: 262dff601ea0d42aeb42d82c81d08fd7, type: 3}
+    buildingIconOnWorld: {fileID: 21300000, guid: 7b1af47446726a2449c41b7575c979d1, type: 3}
+    OnWorldPrefab: {fileID: 4449042193365994943, guid: 9ea3cdbfff219744b9533cd79aa1c117, type: 3}
+    tileX: 6
+    tileY: 4
+    listNoInsidebuildMove: []
+    isNoInside: 0
+    doorInsideGridV2: {x: 8, y: 2}
+    doorMainGridV2: {x: 4, y: -1}
+    mapData_SO: {fileID: 11400000, guid: 8de797e31e6a61843b8585200d925daf, type: 2}
+    insidePrefab: {fileID: 6919963971081496182, guid: 39e120856e356b140b386469f8fb2b95, type: 3}
